@@ -2,66 +2,101 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
-    const navigate = useNavigate();
-    const [showMenu, setShowMenu] = useState(false);
 
-    const clickhandler = () => {
-        navigate("/");
-    }
+  const navigate = useNavigate();
+  const [showMenu, setShowMenu] = useState(false);
 
-    const toggleMenu = () => {
-        setShowMenu(!showMenu);
-    }
+  const clickhandler = () => {
+    navigate("/");
+  }
+
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  }
+
+  // const mouseoutsideClickHandler = () => {
+  //   if (showMenu) {
+  //     setShowMenu(false);
+  //   }
 
   return (
-    <header className='w-full fixed top-0 left-0 z-[100] bg-black pt-5'>
-      <nav className='h-12 md:h-16 flex justify-between items-center font-bold max-w-[1200px] mx-4 lg:mx-auto'>
-        <div>
-          <img 
-            src="/images/logo1.png" 
-            alt="logo" 
-            className='nav__logo h-10 w-[90px] cursor-pointer mt-5'
-            onClick={clickhandler}
-          />
-        </div>
-
+    <>
+      {/* Blur Overlay - shows when menu is open */}
+      {showMenu && (
         <div 
-          className={`
-            fixed md:static
-            ${showMenu ? 'top-12' : 'top-[-100%]'}
-            left-0 
-            bg-gradient-to-b from-black to-[#4E1116] md:bg-none md:bg-transparent
-            w-full md:w-auto
-            h-[45%] md:h-auto
-            p-6 md:p-0
-            rounded-b-3xl md:rounded-none
-            transition-all duration-500 md:transition-none
-          `}
-        >
-          <ul className='text-center md:flex md:gap-12'>
-            <li className='nav__item mb-8 md:mb-0'>
-              <a href="/" className='text-white hover:underline transition-colors'>Home</a>
+          className='fixed inset-0 bg-black/50 backdrop-blur-sm z-[90] md:hidden'
+          onClick={toggleMenu}
+        />
+      )}
+
+      <header className='w-full bg-black pt-2 md:pt-4 shadow-lg relative z-[100]'>
+        <nav className='h-12 md:h-16 flex justify-between items-center font-bold max-w-[1200px] mx-4 lg:mx-auto'>
+          <div>
+            <img
+              src="/images/logo1.png"
+              alt="logo"
+              className='nav__logo h-6 w-[50px] md:h-10 md:w-[90px] cursor-pointer'
+              onClick={clickhandler}
+            />
+          </div>
+
+          {/* Desktop Menu */}
+          <ul className='hidden md:flex gap-12'>
+            <li className='nav__item'>
+              <a href="/" className='text-white hover:text-cyan-400 transition-colors'>Home</a>
             </li>
-            <li className='nav__item mb-8 md:mb-0'>
-              <a href="/about" className='text-white hover:text-[#4E1116] transition-colors'>About</a>
+            <li className='nav__item'>
+              <a href="/about" className='text-white hover:text-cyan-400 transition-colors'>About</a>
             </li>
-            <li className='nav__item mb-8 md:mb-0'>
-              <a href="/services" className='text-white hover:text-[#4E1116] transition-colors'>Services</a>
+            <li className='nav__item'>
+              <a href="/services" className='text-white hover:text-cyan-400 transition-colors'>Services</a>
             </li>
-            <li className='nav__item mb-8 md:mb-0'>
-              <a href="/blog" className='text-white hover:text-[#4E1116] transition-colors'>Blog</a>
+            <li className='nav__item'>
+              <a href="/blog" className='text-white hover:text-cyan-400 transition-colors'>Blog</a>
             </li>
-            <li className='nav__item mb-8 md:mb-0'>
-              <a href="/contact" className='text-white hover:text-[#4E1116] transition-colors'>Contact</a>
+            <li className='nav__item'>
+              <a href="/contact" className='text-white hover:text-cyan-400 transition-colors'>Contact</a>
             </li>
           </ul>
-        </div>
 
-        <div className='text-2xl cursor-pointer md:hidden' onClick={toggleMenu}>
-          <ion-icon name={showMenu ? "close" : "menu"}></ion-icon>
-        </div>
-      </nav>
-    </header>
+          {/* Mobile Menu Button */}
+          <div className='text-2xl cursor-pointer md:hidden text-white z-[110]' onClick={toggleMenu}>
+            <ion-icon name={showMenu ? "close" : "menu"}></ion-icon>
+          </div>
+
+          {/* Mobile Menu */}
+          <div
+            className={`
+              absolute top-full left-0 w-full
+              bg-black/95 backdrop-blur-md
+              p-6 rounded-b-2xl
+              transition-all duration-300
+              md:hidden
+              ${showMenu ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}
+              z-[100]
+            `}
+          >
+            <ul className='text-center space-y-6'>
+              <li>
+                <a href="/" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={toggleMenu}>Home</a>
+              </li>
+              <li>
+                <a href="/about" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={toggleMenu}>About</a>
+              </li>
+              <li>
+                <a href="/services" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={toggleMenu}>Services</a>
+              </li>
+              <li>
+                <a href="/blog" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={toggleMenu}>Blog</a>
+              </li>
+              <li>
+                <a href="/contact" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={toggleMenu}>Contact</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+    </>
   )
 }
 export default Navbar;
