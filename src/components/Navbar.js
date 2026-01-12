@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import logo1 from '../assets/images/logo1.png'
+
 
 const Navbar = () => {
 
@@ -33,7 +35,7 @@ const Navbar = () => {
         <nav className='h-12 md:h-16 flex justify-between items-center font-bold max-w-[1200px] mx-4 lg:mx-auto'>
           <div>
             <img
-              src="/images/logo1.png"
+              src={logo1}
               alt="logo"
               className='nav__logo h-6 w-[50px] md:h-10 md:w-[90px] cursor-pointer'
               onClick={clickhandler}

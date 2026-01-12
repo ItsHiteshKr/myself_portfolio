@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Portfolio Website",
+    "description": "A personal portfolio website to showcase my projects and skills.",
+    "technologies": ["React", "Tailwind CSS", "JavaScript"],
+    "link": "   https://myportfolio.com"
+  },
+  {
+    "id": 2,
+    "name": "Intranet Portal",
+    "description": "An online store with a full-featured shopping cart and payment integration.",
+    "technologies": ["React.js", "FastAPI", "MySQL"],
+    "link": "https://myecommerce.com"
+  },
+  {
+    "id": 3,
+    "name": "Blog Application",
+    "description": "A blogging platform where users can create, edit, and delete posts.",
+    "technologies": ["Django", "Python", "Bootstrap"],
+    "link": "https://myblogapp.com"
+  }
+]
