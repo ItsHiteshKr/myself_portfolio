@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { Facebook, Instagram, Github, Linkedin, ExternalLink } from 'lucide-react';
+import { Facebook, Instagram, Github, Linkedin } from 'lucide-react';
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import RotatingTypewriter from '../components/RotatingTypewriter'
