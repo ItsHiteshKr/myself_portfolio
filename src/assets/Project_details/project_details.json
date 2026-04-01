@@ -1,23 +1,49 @@
 [
   {
     "id": 1,
-    "name": "Portfolio Website",
-    "description": "A personal portfolio website to showcase my projects and skills.",
-    "technologies": ["React", "Tailwind CSS", "JavaScript"],
-    "link": "   https://myportfolio.com"
+    "name": "Intranet Portal",
+    "description": "Developed a full-featured intranet portal to streamline internal company operations and employee workflows. The application includes modules such as employee management, leave tracking, timesheet submission, expense handling, and policy management. Implemented secure authentication using JWT and managed session control with Redis for efficient token handling and logout functionality. Designed a responsive and user-friendly interface using React.js, ensuring seamless usability across devices. Built scalable backend APIs with FastAPI and integrated MySQL for structured data management, improving system performance and reliability.",
+    "technologies": [
+      "React.js",
+      "FastAPI",
+      "MySQL",
+      "JWT",
+      "Redis"
+    ]
   },
   {
     "id": 2,
-    "name": "Intranet Portal",
-    "description": "An online store with a full-featured shopping cart and payment integration.",
-    "technologies": ["React.js", "FastAPI", "MySQL"],
-    "link": "https://myecommerce.com"
+    "name": "Stock Management System",
+    "description": "Built a stock management web application to efficiently track, manage, and update inventory data in real time. The system allows users to add, update, and monitor stock records through an intuitive interface. Developed a responsive frontend using React.js to ensure smooth user interaction across devices. Created backend APIs using FastAPI and integrated a SQL database for reliable data storage and retrieval. Focused on performance optimization, testing, and debugging to enhance system stability, accuracy, and overall user experience.",
+    "technologies": [
+      "React.js",
+      "FastAPI",
+      "MySQL"
+    ]
   },
   {
     "id": 3,
-    "name": "Blog Application",
-    "description": "A blogging platform where users can create, edit, and delete posts.",
-    "technologies": ["Django", "Python", "Bootstrap"],
-    "link": "https://myblogapp.com"
+    "name": "AI Career Coach",
+    "description": "Developed an AI-powered career guidance platform designed to help users explore career paths, generate resumes, and create personalized cover letters. Integrated Gemini API to provide role-based insights including required skills, technologies, industry demand, and salary trends. Designed a modern and responsive user interface using React.js, Tailwind CSS, and Shadcn UI for enhanced user experience. Implemented secure authentication using Clerk and managed user data efficiently with Prisma ORM and PostgreSQL (NeonDB), ensuring scalability, performance, and data integrity.",
+    "technologies": [
+      "React.js",
+      "Tailwind CSS",
+      "Shadcn UI",
+      "FastAPI",
+      "PostgreSQL",
+      "Prisma",
+      "Clerk",
+      "Gemini API"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Google Search Engine Clone",
+    "description": "Developed a search engine web application that allows users to retrieve real-time search results and images based on their queries. Integrated Google Search API to fetch dynamic data and display relevant results efficiently. Designed a clean and responsive user interface using React.js and Tailwind CSS to ensure smooth interaction across devices. Focused on optimizing performance, improving user experience, and implementing a structured layout similar to modern search platforms, making the application fast, intuitive, and user-friendly.",
+    "technologies": [
+      "React.js",
+      "Tailwind CSS",
+      "Google Search API"
+    ]
   }
 ]
