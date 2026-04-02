@@ -140,7 +140,7 @@ export const About = () => {
                         ))}
                     </div>
                 </section>
-                <h5>Version 1.2</h5>
+                <h5>Version 1.5</h5>
             </main>
 
         </div>

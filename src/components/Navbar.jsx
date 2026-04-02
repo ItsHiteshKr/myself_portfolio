@@ -86,9 +86,6 @@ const Navbar = () => {
               <li>
                 <a href="/projects" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={toggleMenu}>My Projects</a>
               </li>
-              {/* <li>
-                <a href="/blog" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={toggleMenu}>Blog</a>
-              </li> */}
               <li>
                 <a href="/#contact" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={handleContactClick}>Contact</a>
               </li>
