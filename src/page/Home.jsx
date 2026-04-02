@@ -1,13 +1,15 @@
 import React, { useEffect, useRef } from "react";
-import { SlSocialInstagram, SlSocialLinkedin, SlSocialFacebook, SlSocialGithub } from "react-icons/sl";
 import { RiComputerLine } from "react-icons/ri";
 import { IoMdCode } from "react-icons/io";
+import { FaArrowRight } from "react-icons/fa6";
+
 import gsap from "gsap";
 import RotatingTypewriter from '../components/RotatingTypewriter'
 import myPic from "../assets/images/newmypic_new.png"
 
 
 import projectData from "../assets/My_details/project_details.json";
+import Contact from "./Contact";
 
 const RESUME_DOWNLOAD_LINK = 'https://docs.google.com/document/d/1czNZcEToS2wC_8C37z88FEMdJpR4AZ5PCOUyUDjy7NI/export?format=pdf';
 
@@ -27,24 +29,34 @@ export const Home = () => {
     if (hasAnimated.current) return;
     hasAnimated.current = true;
 
+    const runTo = (selector, vars) => {
+      const targets = gsap.utils.toArray(selector);
+      if (!targets.length) return;
+      gsap.to(targets, vars);
+    };
+
+    const runFrom = (selector, vars) => {
+      const targets = gsap.utils.toArray(selector);
+      if (!targets.length) return;
+      gsap.from(targets, vars);
+    };
+
     // OVERLAY Animation
-    gsap.to(".first", { duration: 1.5, delay: 0.5, top: "-100%", ease: "expo.inOut" });
-    gsap.to(".second", { duration: 1.5, delay: 0.7, top: "-100%", ease: "expo.inOut" });
-    gsap.to(".third", { duration: 1.5, delay: 0.9, top: "-100%", ease: "expo.inOut" });
-    gsap.to(".fourth", { duration: 1.5, delay: 1.1, top: "-100%", ease: "expo.inOut" });
+    runTo(".first", { duration: 1.5, delay: 0.5, top: "-100%", ease: "expo.inOut" });
+    runTo(".second", { duration: 1.5, delay: 0.7, top: "-100%", ease: "expo.inOut" });
+    runTo(".third", { duration: 1.5, delay: 0.9, top: "-100%", ease: "expo.inOut" });
+    runTo(".fourth", { duration: 1.5, delay: 1.1, top: "-100%", ease: "expo.inOut" });
 
     // IMG Animation
-    gsap.from('.home__img', { opacity: 0, duration: 2, delay: 2, x: 60 });
+    runFrom(".home__img", { opacity: 0, duration: 2, delay: 2, x: 60 });
 
     // INFORMATION Animation
-    gsap.from('.home__information', { opacity: 0, duration: 1.6, delay: 2.3 });
+    runFrom(".home__information", { opacity: 0, duration: 1.6, delay: 2.3 });
 
     // NAV ITEM Animation
-    gsap.from('.nav__logo', { opacity: 0, duration: 3, delay: 3.2, y: 25, ease: 'expo.out' });
-    gsap.from('.nav__item', { opacity: 0, duration: 3, delay: 3.2, y: 25, ease: 'expo.out', stagger: 0.2 });
-
-    // SOCIAL Animation
-    gsap.from('.home__social-icon', { opacity: 0, duration: 3, delay: 4, y: 25, ease: 'expo.out', stagger: 0.2 });
+    runFrom(".nav__logo", { opacity: 0, duration: 3, delay: 3.2, y: 25, ease: "expo.out" });
+    runFrom(".nav__item", { opacity: 0, duration: 3, delay: 3.2, y: 25, ease: "expo.out", stagger: 0.2 });
+    runFrom(".home__social-icon", { opacity: 0, duration: 3, delay: 4, y: 25, ease: "expo.out", stagger: 0.2 });
   }, []);
 
   const handleResumeDownload = () => {
@@ -215,105 +227,71 @@ export const Home = () => {
         </section>
 
         {/* Projects Section */}
-        <section className="projects-section relative mt-10 md:mt-14 max-w-[1200px] mx-auto">
-          <div className="absolute -top-24 right-10 h-56 w-56 rounded-full bg-cyan-500/10 blur-3xl" />
-          <div className="absolute -bottom-24 left-6 h-56 w-56 rounded-full bg-purple-500/10 blur-3xl" />
-
-          <div className="relative rounded-3xl border border-slate-800 bg-slate-950/60 px-5 py-8 sm:px-8 sm:py-10 backdrop-blur">
-            <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-              <div data-reveal className="reveal-item" style={{ transitionDelay: "60ms" }}>
-                <p className="text-xs uppercase tracking-[0.35em] text-cyan-400">Featured Work</p>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">Project Showcase</h2>
-                <p className="text-gray-400 text-sm sm:text-base mt-3 max-w-2xl">
-                  Clean case studies with tech stack highlights. Kisi bhi card par hover karo aur detail ka hint lo.
-                </p>
-              </div>
-              <a
-                href="/projects"
-                data-reveal
-                className="reveal-item inline-flex items-center justify-center rounded-full border border-cyan-400/60 px-5 py-2 text-sm font-semibold text-cyan-300 hover:border-cyan-300 hover:text-white transition"
-                style={{ transitionDelay: "140ms" }}
-              >
-                Explore All Projects
-              </a>
+        <section className="projects-section  mt-10 md:mt-14 max-w-[1200px] mx-auto">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div data-reveal className="reveal-item" style={{ transitionDelay: "60ms" }}>
+              <p className="text-xl uppercase text-cyan-400">My Projects</p>
             </div>
 
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {projectData.map((project, index) => {
-                const projectIndex = String(index + 1).padStart(2, "0");
-                return (
-                  <article
-                    key={project.id}
-                    data-reveal
-                    className="reveal-item group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/40 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/70"
-                    style={{ transitionDelay: `${180 + index * 70}ms` }}
-                  >
-                    <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-cyan-500/10 blur-2xl opacity-0 transition duration-300 group-hover:opacity-100" />
-                    <div className="relative">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs uppercase tracking-[0.3em] text-gray-500">Project {projectIndex}</span>
-                        <span className="text-xs text-cyan-400">Case Study</span>
-                      </div>
-                      <h3 className="text-xl font-semibold text-white mt-4">
-                        {project.name}
-                      </h3>
-                      <p className="text-gray-400 text-sm leading-relaxed mt-3">
-                        {getShortDescription(project.description)}
-                      </p>
-                      <div className="flex flex-wrap gap-2 mt-5">
-                        {project.technologies.slice(0, 4).map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-2.5 py-1 rounded-full bg-black/50 border border-slate-700 text-xs text-gray-300"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                      <div className="mt-6 flex items-center justify-between text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">
-                        <span>View Details</span>
-                        <span className="text-gray-500 group-hover:text-cyan-300 transition">Open</span>
-                      </div>
+          </div>
+
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {projectData.map((project, index) => {
+              const projectIndex = String(index + 1).padStart(2, "0");
+              return (
+                <article
+                  key={project.id}
+                  data-reveal
+                  className="reveal-item group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/40 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/70"
+                  style={{ transitionDelay: `${180 + index * 70}ms` }}
+                >
+                  <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-cyan-500/10 blur-2xl opacity-0 transition duration-300 group-hover:opacity-100" />
+                  <div className="relative">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs uppercase tracking-[0.3em] text-gray-500">Project {projectIndex}</span>
+                      <span className="text-xs text-cyan-400">Case Study</span>
                     </div>
-                  </article>
-                );
-              })}
-            </div>
+                    <h3 className="text-xl font-semibold text-white mt-4">
+                      {project.name}
+                    </h3>
+                    <p className="text-gray-400 text-sm leading-relaxed mt-3">
+                      {getShortDescription(project.description)}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mt-5">
+                      {project.technologies.slice(0, 4).map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2.5 py-1 rounded-full bg-black/50 border border-slate-700 text-xs text-gray-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="mt-6 flex items-center justify-between text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">
+                      <span>View Details</span>
+                      <span className="text-gray-500 group-hover:text-cyan-300 transition">Open</span>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+          <div className="flex justify-center items-end">
+            <a
+              href="/projects"
+              data-reveal
+              className="reveal-item inline-flex items-end justify-center rounded-full border border-cyan-400/60 px-5 py-2 text-sm font-semibold text-cyan-300 hover:border-cyan-300 hover:text-white transition"
+              style={{ transitionDelay: "140ms" }}
+            >
+              Explore All Projects  <span className="flex justify-center items-center pl-3 pb-1">{<FaArrowRight />}</span>
+            </a>
           </div>
         </section>
 
       </div>
 
+      <Contact />
 
-      {/* Social Icons  */}
-      <div
-        data-reveal
-        className="reveal-item flex flex-col items-center gap-4 py-8"
-        style={{ transitionDelay: "120ms" }}
-      >
-        <h3 className="text-white text-lg font-medium">Connect me on : </h3>
-
-        <div className="flex flex-row justify-center items-center gap-3 sm:gap-6">
-          <div className="hidden sm:block w-24 h-[2px] bg-cyan-500 mx-auto mb-2"></div>
-          <div className="flex flex-row gap-4">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon w-11 h-11 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-cyan-500 hover:text-black border border-white/40 hover:scale-110 transition-all duration-300">
-              <SlSocialFacebook size={22} />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon w-11 h-11 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-cyan-500 hover:text-black border border-white/40 hover:scale-110 transition-all duration-300">
-              <SlSocialInstagram size={22} />
-            </a>
-            <a href="https://github.com/ItsHiteshKr" target="_blank" rel="noopener noreferrer" className="social-icon w-11 h-11 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-cyan-500 hover:text-black border border-white/40 hover:scale-110 transition-all duration-300">
-              <SlSocialGithub size={22} />
-            </a>
-            <a href="https://www.linkedin.com/in/hitesh-kumar-088184240" target="_blank" rel="noopener noreferrer" className="social-icon w-11 h-11 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-cyan-500 hover:text-black border border-white/40 hover:scale-110 transition-all duration-300">
-              <SlSocialLinkedin size={22} />
-            </a>
-          </div>
-          <div className="hidden sm:block w-24 h-[2px] bg-cyan-500 mx-auto mb-2"></div>
-
-        </div>
-
-      </div>
 
     </div>
   );

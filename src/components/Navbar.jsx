@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logo1 from '../assets/images/logo1.png'
 
 
@@ -15,6 +15,12 @@ const Navbar = () => {
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   }
+
+  const handleContactClick = (event) => {
+    event.preventDefault();
+    navigate({ pathname: "/", hash: "#contact" });
+    setShowMenu(false);
+  };
 
   return (
     <>
@@ -49,7 +55,7 @@ const Navbar = () => {
               <a href="/projects" className='text-white hover:text-cyan-400 transition-colors'>My Projects</a>
             </li>
             <li className='nav__item'>
-              <a href="/contact" className='text-white hover:text-cyan-400 transition-colors'>Contact</a>
+              <a href="/#contact" onClick={handleContactClick} className='text-white hover:text-cyan-400 transition-colors'>Contact</a>
             </li>
           </ul>
 
@@ -84,7 +90,7 @@ const Navbar = () => {
                 <a href="/blog" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={toggleMenu}>Blog</a>
               </li> */}
               <li>
-                <a href="/contact" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={toggleMenu}>Contact</a>
+                <a href="/#contact" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={handleContactClick}>Contact</a>
               </li>
             </ul>
           </div>

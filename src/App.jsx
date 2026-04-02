@@ -6,7 +6,6 @@ import Footer from "./components/Footer";
 import Home from "./page/Home";
 import About from "./page/About";
 import Project from "./page/Project";
-import Blog from "./page/Blog";
 import Contact from "./page/Contact";
 
 function App() {
@@ -32,6 +31,19 @@ function App() {
 
     return () => observer.disconnect();
   }, [location.pathname]);
+
+  useEffect(() => {
+    if (!location.hash) return;
+    const targetId = location.hash.replace("#", "");
+    const target = document.getElementById(targetId);
+    if (!target) return;
+
+    const frame = window.requestAnimationFrame(() => {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [location.pathname, location.hash]);
 
   return (
     <div className="relative min-h-screen w-full max-w-[1400px] mx-auto overflow-x-hidden px-4 sm:px-6 lg:px-0">
