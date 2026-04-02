@@ -1,0 +1,75 @@
+{
+    "skills": [
+        {
+            "category": "Frontend",
+            "items": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "React.js",
+                "Tailwind CSS"
+            ]
+        },
+        {
+            "category": "Backend",
+            "items": [
+                "Node.js",
+                "FastAPI",
+                "Express.js",
+                "JWT",
+                "Redis"
+            ]
+        },
+        {
+            "category": "Database",
+            "items": [
+                "MySQL",
+                "MongoDB",
+                "PostgreSQL",
+                "Prisma"
+            ]
+        },
+        {
+            "category": "Tools",
+            "items": [
+                "Git",
+                "GitHub",
+                "VS Code",
+                "Vercel",
+                "Postman"
+            ]
+        }
+    ],
+    "services": [
+        {
+            "title": "Website Development",
+            "description": "Modern, responsive websites using React.js, Tailwind CSS, and latest web technologies."
+        },
+        {
+            "title": "Backend Development",
+            "description": "Scalable REST APIs with Node.js, FastAPI, JWT authentication, and database integration."
+        },
+        {
+            "title": "Database Design",
+            "description": "Efficient database architecture using MySQL, MongoDB, and PostgreSQL with ORM tools."
+        },
+        {
+            "title": "Website Hosting",
+            "description": "Deployment and hosting on platforms like Vercel, Netlify, and cloud services."
+        }
+    ],
+    "timeline": [
+        {
+            "year": "2024 - Present",
+            "title": "Full Stack Web Developer",
+            "place": "Freelance / Projects",
+            "description": "Building full-stack web applications using MERN stack and FastAPI."
+        },
+        {
+            "year": "2023 - 2024",
+            "title": "Learning & Building",
+            "place": "Self-taught",
+            "description": "Learned React.js, Node.js, databases, and built multiple real-world projects."
+        }
+    ]
+}

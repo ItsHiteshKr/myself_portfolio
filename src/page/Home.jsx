@@ -3,13 +3,11 @@ import { SlSocialInstagram, SlSocialLinkedin, SlSocialFacebook, SlSocialGithub }
 import { RiComputerLine } from "react-icons/ri";
 import { IoMdCode } from "react-icons/io";
 import gsap from "gsap";
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
 import RotatingTypewriter from '../components/RotatingTypewriter'
 import myPic from "../assets/images/newmypic_new.png"
 
 
-import projectData from '../assets/Project_details/project_details.json'
+import projectData from '../assets/My_details/project_details.json'
 
 const RESUME_DOWNLOAD_LINK = 'https://docs.google.com/document/d/1czNZcEToS2wC_8C37z88FEMdJpR4AZ5PCOUyUDjy7NI/export?format=pdf';
 
@@ -55,15 +53,13 @@ export const Home = () => {
   };
 
   return (
-    <div className="home__container relative min-h-screen w-full max-w-[1400px] mx-auto overflow-x-hidden px-4 sm:px-6 lg:px-0">
+    <div>
       {/* OVERLAY */}
       <div className="overlay first fixed top-0 left-0 w-full h-full z-[1000] pointer-events-none bg-cyan-500"></div>
       <div className="overlay second fixed top-0 left-[25%] w-full h-full z-[1000] pointer-events-none bg-cyan-500"></div>
       <div className="overlay third fixed top-0 left-[50%] w-full h-full z-[1000] pointer-events-none bg-cyan-500"></div>
       <div className="overlay fourth fixed top-0 left-[75%] w-full h-full z-[1000] pointer-events-none bg-cyan-500"></div>
 
-      {/* Navbar */}
-      <Navbar />
       {/* MAIN */}
       <main className="main min-h-[82vh] bg-black mt-6 max-w-[1200px] mx-auto">
         <div className="home grid grid-cols-1 md:grid-cols-2 items-center gap-y-6 md:gap-y-2 h-full font-bold md:gap-x-8 lg:gap-x-10">
@@ -85,12 +81,12 @@ export const Home = () => {
 
 
             <div className="flex flex-wrap items-center gap-3 mt-6">
-              <button
-                className="bg-cyan-500 hover:bg-cyan-600 text-white rounded py-2.5 px-4 transition-all"
-                onclick="window.location.href='mailto:hiteshbih11@gmail.com"
+              <a
+                href="mailto:hiteshbih11@gmail.com"
+                className="bg-cyan-500 hover:bg-cyan-600 text-white rounded py-2.5 px-4 transition-all inline-block"
               >
                 Hire me ?
-              </button>
+              </a>
               <button
                 className="bg-transparent border border-white hover:border-cyan-500 text-white hover:bg-cyan-600 hover:text-black rounded py-2.5 px-4 transition-all"
                 onClick={handleResumeDownload}
@@ -265,8 +261,6 @@ export const Home = () => {
 
       </div>
 
-      {/* Footer */}
-      <Footer />
     </div>
   );
 };
