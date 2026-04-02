@@ -110,7 +110,7 @@ export const About = () => {
                         ))}
                     </div>
                 </section>
-
+                <h5>1.1</h5>
             </main>
 
         </div>
