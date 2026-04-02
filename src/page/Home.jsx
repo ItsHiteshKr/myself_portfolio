@@ -7,11 +7,17 @@ import RotatingTypewriter from '../components/RotatingTypewriter'
 import myPic from "../assets/images/newmypic_new.png"
 
 
-import projectData from '../assets/My_details/project_details.json'
+import projectData from "../assets/My_details/project_details.json";
 
 const RESUME_DOWNLOAD_LINK = 'https://docs.google.com/document/d/1czNZcEToS2wC_8C37z88FEMdJpR4AZ5PCOUyUDjy7NI/export?format=pdf';
 
 const ROLE_TEXTS = ["Full Stack Web Developer", "MERN Stack Developer", "React.js Developer"];
+
+const getShortDescription = (text, limit = 130) => {
+  if (!text) return "";
+  if (text.length <= limit) return text;
+  return `${text.slice(0, limit).trim()}...`;
+};
 
 export const Home = () => {
 
@@ -107,7 +113,11 @@ export const Home = () => {
         </div>
 
         {/* Language name */}
-        <div className="flex flex-wrap justify-center gap-3 md:gap-8 bg-slate-800/50 backdrop-blur-sm w-auto mx-auto px-4 sm:px-6 py-3 rounded-md mt-28 md:mt-20 text-white font-medium text-center text-xs sm:text-sm md:text-base">
+        <div
+          data-reveal
+          className="reveal-item flex flex-wrap justify-center gap-3 md:gap-8 bg-slate-800/50 backdrop-blur-sm w-auto mx-auto px-4 sm:px-6 py-3 rounded-md mt-28 md:mt-20 text-white font-medium text-center text-xs sm:text-sm md:text-base"
+          style={{ transitionDelay: "80ms" }}
+        >
           <p>HTML</p>
           <p>CSS</p>
           <p>JavaScript</p>
@@ -125,7 +135,11 @@ export const Home = () => {
 
       <div>
         {/* About Section - New Design */}
-        <section className="about-section text-white py-4 md:py-8 px-0 mt-0 max-w-[1200px] mx-auto">
+        <section
+          data-reveal
+          className="reveal-item about-section text-white py-4 md:py-8 px-0 mt-0 max-w-[1200px] mx-auto"
+          style={{ transitionDelay: "120ms" }}
+        >
           <div className="max-w-[1150px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
             {/* Left Side - Services */}
@@ -201,34 +215,70 @@ export const Home = () => {
         </section>
 
         {/* Projects Section */}
-        <section className="projects-section bg-black text-white py-10 md:py-12 px-0 mt-8 md:mt-12 max-w-[1200px] mx-auto rounded-xl">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 border-b-4 border-cyan-500 inline-block pb-2">My Projects</h2>
+        <section className="projects-section relative mt-10 md:mt-14 max-w-[1200px] mx-auto">
+          <div className="absolute -top-24 right-10 h-56 w-56 rounded-full bg-cyan-500/10 blur-3xl" />
+          <div className="absolute -bottom-24 left-6 h-56 w-56 rounded-full bg-purple-500/10 blur-3xl" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-            {/* Dynamic Project Cards */}
-            {projectData.map((project) => (
-              <div key={project.id} className="project-card bg-slate-900/50 rounded-xl overflow-hidden border border-slate-700 hover:border-cyan-500 transition-all duration-300 group">
-                <div className="h-48 overflow-hidden bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center">
-                  <span className="text-6xl">💻</span>
-                </div>
-                <div className="p-5">
-                  <h3 className="text-xl font-bold text-white mb-2">{project.name}</h3>
-                  <p className="text-gray-400 text-sm mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech, index) => (
-                      <span key={index} className="px-2 py-1 bg-cyan-500/20 text-cyan-400 text-xs rounded">{tech}</span>
-                    ))}
-                  </div>
-                  {/* <div className="flex gap-3">
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-sm text-white hover:text-cyan-400 transition-colors">
-                      <ExternalLink size={16} /> Live Demo
-                    </a>
-                  </div> */}
-                </div>
+          <div className="relative rounded-3xl border border-slate-800 bg-slate-950/60 px-5 py-8 sm:px-8 sm:py-10 backdrop-blur">
+            <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+              <div data-reveal className="reveal-item" style={{ transitionDelay: "60ms" }}>
+                <p className="text-xs uppercase tracking-[0.35em] text-cyan-400">Featured Work</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">Project Showcase</h2>
+                <p className="text-gray-400 text-sm sm:text-base mt-3 max-w-2xl">
+                  Clean case studies with tech stack highlights. Kisi bhi card par hover karo aur detail ka hint lo.
+                </p>
               </div>
-            ))}
+              <a
+                href="/projects"
+                data-reveal
+                className="reveal-item inline-flex items-center justify-center rounded-full border border-cyan-400/60 px-5 py-2 text-sm font-semibold text-cyan-300 hover:border-cyan-300 hover:text-white transition"
+                style={{ transitionDelay: "140ms" }}
+              >
+                Explore All Projects
+              </a>
+            </div>
 
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {projectData.map((project, index) => {
+                const projectIndex = String(index + 1).padStart(2, "0");
+                return (
+                  <article
+                    key={project.id}
+                    data-reveal
+                    className="reveal-item group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/40 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/70"
+                    style={{ transitionDelay: `${180 + index * 70}ms` }}
+                  >
+                    <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-cyan-500/10 blur-2xl opacity-0 transition duration-300 group-hover:opacity-100" />
+                    <div className="relative">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs uppercase tracking-[0.3em] text-gray-500">Project {projectIndex}</span>
+                        <span className="text-xs text-cyan-400">Case Study</span>
+                      </div>
+                      <h3 className="text-xl font-semibold text-white mt-4">
+                        {project.name}
+                      </h3>
+                      <p className="text-gray-400 text-sm leading-relaxed mt-3">
+                        {getShortDescription(project.description)}
+                      </p>
+                      <div className="flex flex-wrap gap-2 mt-5">
+                        {project.technologies.slice(0, 4).map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-2.5 py-1 rounded-full bg-black/50 border border-slate-700 text-xs text-gray-300"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="mt-6 flex items-center justify-between text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">
+                        <span>View Details</span>
+                        <span className="text-gray-500 group-hover:text-cyan-300 transition">Open</span>
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
           </div>
         </section>
 
@@ -236,7 +286,11 @@ export const Home = () => {
 
 
       {/* Social Icons  */}
-      <div className="flex flex-col items-center gap-4 py-8">
+      <div
+        data-reveal
+        className="reveal-item flex flex-col items-center gap-4 py-8"
+        style={{ transitionDelay: "120ms" }}
+      >
         <h3 className="text-white text-lg font-medium">Connect me on : </h3>
 
         <div className="flex flex-row justify-center items-center gap-3 sm:gap-6">

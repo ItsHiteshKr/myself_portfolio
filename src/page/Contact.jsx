@@ -30,7 +30,7 @@ const Contact = () => {
       <main className="max-w-[1200px] mx-auto mt-6">
 
         {/* Header */}
-        <section className="py-10">
+        <section data-reveal className="reveal-item py-10" style={{ transitionDelay: "40ms" }}>
           <h1 className="text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-cyan-500 mb-4">
             Contact Me
           </h1>
@@ -43,7 +43,11 @@ const Contact = () => {
 
           {/* Contact Info */}
           <div className="lg:col-span-2 space-y-6">
-            <div className="bg-slate-900/50 border border-slate-700 rounded-xl p-6 flex items-start gap-4 hover:border-cyan-500 transition-all duration-300">
+            <div
+              data-reveal
+              className="reveal-item bg-slate-900/50 border border-slate-700 rounded-xl p-6 flex items-start gap-4 hover:border-cyan-500 transition-all duration-300"
+              style={{ transitionDelay: "120ms" }}
+            >
               <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-cyan-500/10 text-cyan-400 shrink-0">
                 <FaEnvelope size={20} />
               </div>
@@ -59,7 +63,12 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className="lg:col-span-3">
-            <form onSubmit={handleSubmit} className="bg-slate-900/50 border border-slate-700 rounded-xl p-6 md:p-8 space-y-5">
+            <form
+              data-reveal
+              onSubmit={handleSubmit}
+              className="reveal-item bg-slate-900/50 border border-slate-700 rounded-xl p-6 md:p-8 space-y-5"
+              style={{ transitionDelay: "180ms" }}
+            >
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>

@@ -24,7 +24,11 @@ const Project = () => {
     return (
         <div>
             <main className="max-w-[1200px] mx-auto mt-6">
-                <section className="relative overflow-hidden py-10">
+                <section
+                    data-reveal
+                    className="reveal-item relative overflow-hidden py-10"
+                    style={{ transitionDelay: "40ms" }}
+                >
                     <div className="absolute -top-24 right-0 h-64 w-64 rounded-full bg-cyan-500/10 blur-3xl" />
                     <div className="absolute -bottom-24 left-0 h-64 w-64 rounded-full bg-purple-500/10 blur-3xl" />
                     <h1 className="text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-cyan-500 mb-4">
@@ -38,17 +42,19 @@ const Project = () => {
 
                 <section className="pb-12">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {projectData.map((project) => {
+                        {projectData.map((project, index) => {
                             const isActive = project.id === activeId;
                             return (
                                 <button
                                     key={project.id}
                                     type="button"
+                                    data-reveal
                                     onClick={() => handleOpen(project.id)}
                                     className={`text-left rounded-2xl border p-5 transition-all duration-300 ${isActive
                                         ? "border-cyan-500 bg-cyan-500/10 shadow-[0_0_30px_rgba(6,182,212,0.15)]"
                                         : "border-slate-800 bg-slate-900/40 hover:border-cyan-500/60"
                                         }`}
+                                    style={{ transitionDelay: `${80 + index * 70}ms` }}
                                 >
                                     <div className="flex items-center justify-between gap-3">
                                         <div>
@@ -94,8 +100,8 @@ const Project = () => {
                 role="dialog"
                 aria-modal="true"
                 className={`fixed left-4 right-4 bottom-4 z-[130] sm:left-auto sm:right-6 sm:bottom-6 sm:w-[520px] max-h-[80vh] overflow-y-auto rounded-2xl border border-slate-700 bg-slate-950/95 p-6 shadow-2xl transition-all duration-300 ${isOpen
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-6 pointer-events-none"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-6 pointer-events-none"
                     }`}
             >
                 {activeProject ? (
