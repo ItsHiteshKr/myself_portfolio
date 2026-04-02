@@ -49,31 +49,12 @@ const Contact = () => {
               </div>
               <div>
                 <h3 className="text-white font-semibold mb-1">Email</h3>
-                <a href="mailto:hiteshkumar@example.com" className="text-gray-400 text-sm hover:text-cyan-400 transition-colors">
-                  hiteshkumar@example.com
+                <a href="mailto:hiteshbih11@gmail.com" className="text-gray-400 text-sm hover:text-cyan-400 transition-colors">
+                  hiteshbih11@gmail.com
                 </a>
               </div>
             </div>
 
-            <div className="bg-slate-900/50 border border-slate-700 rounded-xl p-6 flex items-start gap-4 hover:border-cyan-500 transition-all duration-300">
-              <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-cyan-500/10 text-cyan-400 shrink-0">
-                <FaPhone size={20} />
-              </div>
-              <div>
-                <h3 className="text-white font-semibold mb-1">Phone</h3>
-                <p className="text-gray-400 text-sm">+91 XXXXX XXXXX</p>
-              </div>
-            </div>
-
-            <div className="bg-slate-900/50 border border-slate-700 rounded-xl p-6 flex items-start gap-4 hover:border-cyan-500 transition-all duration-300">
-              <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-cyan-500/10 text-cyan-400 shrink-0">
-                <FaMapMarkerAlt size={20} />
-              </div>
-              <div>
-                <h3 className="text-white font-semibold mb-1">Location</h3>
-                <p className="text-gray-400 text-sm">India</p>
-              </div>
-            </div>
           </div>
 
           {/* Contact Form */}

@@ -46,10 +46,7 @@ const Navbar = () => {
               <a href="/about" className='text-white hover:text-cyan-400 transition-colors'>About</a>
             </li>
             <li className='nav__item'>
-              <a href="/services" className='text-white hover:text-cyan-400 transition-colors'>Services</a>
-            </li>
-            <li className='nav__item'>
-              <a href="/blog" className='text-white hover:text-cyan-400 transition-colors'>Blog</a>
+              <a href="/projects" className='text-white hover:text-cyan-400 transition-colors'>My Projects</a>
             </li>
             <li className='nav__item'>
               <a href="/contact" className='text-white hover:text-cyan-400 transition-colors'>Contact</a>
@@ -81,11 +78,11 @@ const Navbar = () => {
                 <a href="/about" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={toggleMenu}>About</a>
               </li>
               <li>
-                <a href="/services" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={toggleMenu}>Services</a>
+                <a href="/projects" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={toggleMenu}>My Projects</a>
               </li>
-              <li>
+              {/* <li>
                 <a href="/blog" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={toggleMenu}>Blog</a>
-              </li>
+              </li> */}
               <li>
                 <a href="/contact" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={toggleMenu}>Contact</a>
               </li>
