@@ -1,14 +1,16 @@
 import React, { useEffect, useRef } from "react";
+import { SlSocialInstagram, SlSocialLinkedin, SlSocialFacebook, SlSocialGithub } from "react-icons/sl";
+import { RiComputerLine } from "react-icons/ri";
+import { IoMdCode } from "react-icons/io";
 import gsap from "gsap";
-import { Facebook, Instagram, Github, Linkedin } from 'lucide-react';
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import RotatingTypewriter from '../components/RotatingTypewriter'
 import myPic from "../assets/images/newmypic_new.png"
-import { RiComputerLine } from "react-icons/ri";
-import { IoMdCode } from "react-icons/io";
+
 
 import projectData from '../assets/Project_details/project_details.json'
+
 const RESUME_DOWNLOAD_LINK = 'https://docs.google.com/document/d/1czNZcEToS2wC_8C37z88FEMdJpR4AZ5PCOUyUDjy7NI/export?format=pdf';
 
 const ROLE_TEXTS = ["Full Stack Web Developer", "MERN Stack Developer", "React.js Developer"];
@@ -85,8 +87,9 @@ export const Home = () => {
             <div className="flex flex-wrap items-center gap-3 mt-6">
               <button
                 className="bg-cyan-500 hover:bg-cyan-600 text-white rounded py-2.5 px-4 transition-all"
+                onclick="window.location.href='mailto:hiteshbih11@gmail.com"
               >
-                Got a project?
+                Hire me ?
               </button>
               <button
                 className="bg-transparent border border-white hover:border-cyan-500 text-white hover:bg-cyan-600 hover:text-black rounded py-2.5 px-4 transition-all"
@@ -244,16 +247,16 @@ export const Home = () => {
           <div className="hidden sm:block w-24 h-[2px] bg-cyan-500 mx-auto mb-2"></div>
           <div className="flex flex-row gap-4">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon w-11 h-11 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-cyan-500 hover:text-black border border-white/40 hover:scale-110 transition-all duration-300">
-              <Facebook size={22} />
+              <SlSocialFacebook size={22} />
             </a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon w-11 h-11 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-cyan-500 hover:text-black border border-white/40 hover:scale-110 transition-all duration-300">
-              <Instagram size={22} />
+              <SlSocialInstagram size={22} />
             </a>
             <a href="https://github.com/ItsHiteshKr" target="_blank" rel="noopener noreferrer" className="social-icon w-11 h-11 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-cyan-500 hover:text-black border border-white/40 hover:scale-110 transition-all duration-300">
-              <Github size={22} />
+              <SlSocialGithub size={22} />
             </a>
             <a href="https://www.linkedin.com/in/hitesh-kumar-088184240" target="_blank" rel="noopener noreferrer" className="social-icon w-11 h-11 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-cyan-500 hover:text-black border border-white/40 hover:scale-110 transition-all duration-300">
-              <Linkedin size={22} />
+              <SlSocialLinkedin size={22} />
             </a>
           </div>
           <div className="hidden sm:block w-24 h-[2px] bg-cyan-500 mx-auto mb-2"></div>

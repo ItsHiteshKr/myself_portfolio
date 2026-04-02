@@ -16,16 +16,11 @@ const Navbar = () => {
     setShowMenu(!showMenu);
   }
 
-  // const mouseoutsideClickHandler = () => {
-  //   if (showMenu) {
-  //     setShowMenu(false);
-  //   }
-
   return (
     <>
       {/* Blur Overlay - shows when menu is open */}
       {showMenu && (
-        <div 
+        <div
           className='fixed inset-0 bg-black/50 backdrop-blur-sm z-[90] md:hidden'
           onClick={toggleMenu}
         />
@@ -37,7 +32,7 @@ const Navbar = () => {
             <img
               src={logo1}
               alt="logo"
-              className='nav__logo h-6 w-[50px] md:h-10 md:w-[90px] cursor-pointer'
+              className='nav__logo h-6 w-[45px] md:h-10 md:w-[80px] cursor-pointer'
               onClick={clickhandler}
             />
           </div>
