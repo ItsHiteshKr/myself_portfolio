@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { IoClose } from "react-icons/io5";
+import { FaArrowRight } from "react-icons/fa6";
 import projectData from "../assets/My_details/project_details.json";
 
-const getShortDescription = (text, limit = 140) => {
+const getShortDescription = (text, limit = 120) => {
     if (!text) return "";
     if (text.length <= limit) return text;
     return `${text.slice(0, limit).trim()}...`;
@@ -24,64 +26,90 @@ const Project = () => {
     return (
         <div>
             <main className="max-w-[1200px] mx-auto mt-6">
-                <section
-                    data-reveal
-                    className="reveal-item relative overflow-hidden py-10"
-                    style={{ transitionDelay: "40ms" }}
-                >
-                    <div className="absolute -top-24 right-0 h-64 w-64 rounded-full bg-cyan-500/10 blur-3xl" />
-                    <div className="absolute -bottom-24 left-0 h-64 w-64 rounded-full bg-purple-500/10 blur-3xl" />
-                    <h1 className="text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-cyan-500 mb-4">
-                        My Projects
-                    </h1>
-                    <p className="text-gray-400 text-base font-normal max-w-2xl">
-                        Mini cards me ek project select karo, aur uska full detail side panel me dekho.
-                        Har project ke tech stack aur description yahin se mil jayega.
-                    </p>
+                {/* Header */}
+                <section className="py-10">
+                    <div data-reveal className="reveal-item" style={{ transitionDelay: "40ms" }}>
+                        <p className="text-cyan-400 text-sm font-medium tracking-widest uppercase mb-3">Portfolio</p>
+                        <h1 className="text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-cyan-500 mb-4">
+                            My Projects
+                        </h1>
+                        <p className="text-gray-400 text-base font-normal max-w-2xl leading-relaxed">
+                            A collection of projects I've built — from full-stack web apps to API integrations.
+                            Click on any project to explore its details and tech stack.
+                        </p>
+                    </div>
+
+                    {/* Stats bar */}
+                    <div
+                        data-reveal
+                        className="reveal-item flex gap-8 mt-8"
+                        style={{ transitionDelay: "80ms" }}
+                    >
+                        <div>
+                            <span className="text-2xl font-bold text-white">{projectData.length}</span>
+                            <p className="text-gray-500 text-xs mt-0.5">Projects</p>
+                        </div>
+                        <div className="w-px bg-slate-700"></div>
+                        <div>
+                            <span className="text-2xl font-bold text-white">
+                                {[...new Set(projectData.flatMap(p => p.technologies))].length}
+                            </span>
+                            <p className="text-gray-500 text-xs mt-0.5">Technologies</p>
+                        </div>
+                    </div>
                 </section>
 
-                <section className="pb-12">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {/* Project Cards */}
+                <section className="pb-16">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                         {projectData.map((project, index) => {
-                            const isActive = project.id === activeId;
+                            const isActive = project.id === activeId && isOpen;
+                            const projectNum = String(index + 1).padStart(2, "0");
                             return (
                                 <button
                                     key={project.id}
                                     type="button"
-                                    data-reveal
                                     onClick={() => handleOpen(project.id)}
-                                    className={`text-left rounded-2xl border p-5 transition-all duration-300 ${isActive
-                                        ? "border-cyan-500 bg-cyan-500/10 shadow-[0_0_30px_rgba(6,182,212,0.15)]"
-                                        : "border-slate-800 bg-slate-900/40 hover:border-cyan-500/60"
+                                    className={`text-left rounded-2xl border p-6 transition-all duration-300 group ${isActive
+                                        ? "border-cyan-500 bg-cyan-500/5"
+                                        : "border-slate-800 bg-slate-900/40 hover:border-slate-600"
                                         }`}
-                                    style={{ transitionDelay: `${80 + index * 70}ms` }}
                                 >
-                                    <div className="flex items-center justify-between gap-3">
-                                        <div>
-                                            <p className="text-xs uppercase tracking-[0.2em] text-gray-500">
-                                                Project {project.id}
-                                            </p>
-                                            <h3 className="text-lg font-semibold text-white mt-1">
-                                                {project.name}
-                                            </h3>
-                                        </div>
-                                        <span
-                                            className={`h-2.5 w-2.5 rounded-full ${isActive ? "bg-cyan-400" : "bg-slate-700"
-                                                }`}
-                                        />
+                                    {/* Top row */}
+                                    <div className="flex items-start justify-between gap-3">
+                                        <span className="text-3xl font-black text-slate-800 group-hover:text-slate-700 transition-colors">
+                                            {projectNum}
+                                        </span>
+                                        <span className={`mt-1.5 flex items-center gap-1.5 text-xs ${isActive ? "text-cyan-400" : "text-gray-600 group-hover:text-gray-400"} transition-colors`}>
+                                            View <FaArrowRight size={10} />
+                                        </span>
                                     </div>
-                                    <p className="text-gray-400 text-sm mt-3 leading-relaxed">
+
+                                    {/* Name */}
+                                    <h3 className="text-xl font-bold text-white mt-3">
+                                        {project.name}
+                                    </h3>
+
+                                    {/* Description */}
+                                    <p className="text-gray-400 text-sm mt-2 leading-relaxed">
                                         {getShortDescription(project.description)}
                                     </p>
-                                    <div className="flex flex-wrap gap-2 mt-4">
-                                        {project.technologies.slice(0, 3).map((tech) => (
+
+                                    {/* Tech chips */}
+                                    <div className="flex flex-wrap gap-2 mt-5">
+                                        {project.technologies.slice(0, 4).map((tech) => (
                                             <span
                                                 key={tech}
-                                                className="px-2.5 py-1 rounded-full bg-black/50 border border-slate-700 text-xs text-gray-300"
+                                                className="px-2.5 py-1 rounded-full bg-black/40 border border-slate-700/60 text-xs text-gray-400"
                                             >
                                                 {tech}
                                             </span>
                                         ))}
+                                        {project.technologies.length > 4 && (
+                                            <span className="px-2.5 py-1 rounded-full bg-black/40 border border-slate-700/60 text-xs text-gray-500">
+                                                +{project.technologies.length - 4}
+                                            </span>
+                                        )}
                                     </div>
                                 </button>
                             );
@@ -90,63 +118,72 @@ const Project = () => {
                 </section>
             </main>
 
+            {/* Overlay */}
             <div
                 className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[120] transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
                     }`}
                 onClick={handleClose}
             />
 
+            {/* Detail Panel */}
             <aside
                 role="dialog"
                 aria-modal="true"
-                className={`fixed left-4 right-4 bottom-4 z-[130] sm:left-auto sm:right-6 sm:bottom-6 sm:w-[520px] max-h-[80vh] overflow-y-auto rounded-2xl border border-slate-700 bg-slate-950/95 p-6 shadow-2xl transition-all duration-300 ${isOpen
+                className={`fixed left-4 right-4 bottom-4 z-[130] sm:left-auto sm:right-6 sm:bottom-6 sm:w-[520px] max-h-[80vh] overflow-y-auto rounded-2xl border border-slate-700/80 bg-slate-950/95 backdrop-blur-md shadow-2xl transition-all duration-300 ${isOpen
                     ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-6 pointer-events-none"
+                    : "opacity-0 translate-y-8 pointer-events-none"
                     }`}
             >
                 {activeProject ? (
-                    <>
-                        <div className="flex items-start justify-between gap-4">
+                    <div>
+                        {/* Panel Header */}
+                        <div className="sticky top-0 bg-slate-950/95 backdrop-blur-md px-6 pt-6 pb-4 border-b border-slate-800/50">
+                            <div className="flex items-start justify-between gap-4">
+                                <div>
+                                    <p className="text-xs font-medium tracking-widest uppercase text-cyan-400 mb-1">
+                                        Project {String(projectData.indexOf(activeProject) + 1).padStart(2, "0")}
+                                    </p>
+                                    <h2 className="text-2xl font-bold text-white">
+                                        {activeProject.name}
+                                    </h2>
+                                </div>
+                                <button
+                                    type="button"
+                                    onClick={handleClose}
+                                    className="w-8 h-8 flex items-center justify-center rounded-lg bg-slate-800 text-gray-400 hover:text-white hover:bg-slate-700 transition-colors"
+                                >
+                                    <IoClose size={18} />
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Panel Body */}
+                        <div className="px-6 py-5 space-y-6">
+                            {/* Description */}
                             <div>
-                                <p className="text-xs uppercase tracking-[0.2em] text-cyan-400">
-                                    Project Details
+                                <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3">About</h3>
+                                <p className="text-gray-300 text-sm leading-relaxed">
+                                    {activeProject.description}
                                 </p>
-                                <h2 className="text-2xl font-bold text-white mt-2">
-                                    {activeProject.name}
-                                </h2>
                             </div>
-                            <button
-                                type="button"
-                                onClick={handleClose}
-                                className="text-xs uppercase tracking-[0.2em] text-gray-400 hover:text-white"
-                            >
-                                Close
-                            </button>
-                        </div>
 
-                        <p className="text-gray-300 text-sm leading-relaxed mt-4">
-                            {activeProject.description}
-                        </p>
-
-                        <div className="mt-6">
-                            <h3 className="text-sm font-semibold text-white">Technologies</h3>
-                            <div className="flex flex-wrap gap-2 mt-3">
-                                {activeProject.technologies.map((tech) => (
-                                    <span
-                                        key={tech}
-                                        className="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-xs text-cyan-300"
-                                    >
-                                        {tech}
-                                    </span>
-                                ))}
+                            {/* Technologies */}
+                            <div>
+                                <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3">Tech Stack</h3>
+                                <div className="flex flex-wrap gap-2">
+                                    {activeProject.technologies.map((tech) => (
+                                        <span
+                                            key={tech}
+                                            className="px-3 py-1.5 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-xs text-cyan-300 font-medium"
+                                        >
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
                             </div>
                         </div>
-                    </>
-                ) : (
-                    <p className="text-gray-400">
-                        Abhi koi project select nahi hua. Kisi bhi card par click karein.
-                    </p>
-                )}
+                    </div>
+                ) : null}
             </aside>
         </div>
     );

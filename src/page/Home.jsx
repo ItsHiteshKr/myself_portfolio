@@ -7,7 +7,6 @@ import gsap from "gsap";
 import RotatingTypewriter from '../components/RotatingTypewriter'
 import myPic from "../assets/images/newmypic_new.png"
 
-
 import projectData from "../assets/My_details/project_details.json";
 import Contact from "./Contact";
 
@@ -248,8 +247,7 @@ export const Home = () => {
                   <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-cyan-500/10 blur-2xl opacity-0 transition duration-300 group-hover:opacity-100" />
                   <div className="relative">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs uppercase tracking-[0.3em] text-gray-500">Project {projectIndex}</span>
-                      <span className="text-xs text-cyan-400">Case Study</span>
+                      <span className="text-xs uppercase text-gray-500">Project {projectIndex}</span>
                     </div>
                     <h3 className="text-xl font-semibold text-white mt-4">
                       {project.name}
@@ -266,10 +264,6 @@ export const Home = () => {
                           {tech}
                         </span>
                       ))}
-                    </div>
-                    <div className="mt-6 flex items-center justify-between text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">
-                      <span>View Details</span>
-                      <span className="text-gray-500 group-hover:text-cyan-300 transition">Open</span>
                     </div>
                   </div>
                 </article>

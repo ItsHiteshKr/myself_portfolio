@@ -25,8 +25,7 @@
             "items": [
                 "MySQL",
                 "MongoDB",
-                "PostgreSQL",
-                "Prisma"
+                "PostgreSQL"
             ]
         },
         {
@@ -60,16 +59,22 @@
     ],
     "timeline": [
         {
-            "year": "2024 - Present",
-            "title": "Full Stack Web Developer",
-            "place": "Freelance / Projects",
-            "description": "Building full-stack web applications using MERN stack and FastAPI."
-        },
-        {
             "year": "2023 - 2024",
             "title": "Learning & Building",
             "place": "Self-taught",
             "description": "Learned React.js, Node.js, databases, and built multiple real-world projects."
+        },
+        {
+            "year": "May 2025 - Present",
+            "title": "Full Stack Web Developer",
+            "place": "Concientech It Solutions Pvt Ltd",
+            "description": "Building full-stack web applications using MERN stack and FastAPI."
+        },
+        {
+            "year": "Future",
+            "title": "Continuous Growth",
+            "place": "Ongoing Learning",
+            "description": "Continuously improving skills, exploring new technologies, and taking on challenging projects."
         }
     ]
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import logo1 from '../assets/images/logo1.png'
 
 
@@ -46,13 +46,13 @@ const Navbar = () => {
           {/* Desktop Menu */}
           <ul className='hidden md:flex gap-12'>
             <li className='nav__item'>
-              <a href="/" className='text-white hover:text-cyan-400 transition-colors'>Home</a>
+              <Link to="/" className='text-white hover:text-cyan-400 transition-colors'>Home</Link>
             </li>
             <li className='nav__item'>
-              <a href="/about" className='text-white hover:text-cyan-400 transition-colors'>About</a>
+              <Link to="/about" className='text-white hover:text-cyan-400 transition-colors'>About</Link>
             </li>
             <li className='nav__item'>
-              <a href="/projects" className='text-white hover:text-cyan-400 transition-colors'>My Projects</a>
+              <Link to="/projects" className='text-white hover:text-cyan-400 transition-colors'>My Projects</Link>
             </li>
             <li className='nav__item'>
               <a href="/#contact" onClick={handleContactClick} className='text-white hover:text-cyan-400 transition-colors'>Contact</a>
@@ -78,13 +78,13 @@ const Navbar = () => {
           >
             <ul className='text-center space-y-6'>
               <li>
-                <a href="/" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={toggleMenu}>Home</a>
+                <Link to="/" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={toggleMenu}>Home</Link>
               </li>
               <li>
-                <a href="/about" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={toggleMenu}>About</a>
+                <Link to="/about" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={toggleMenu}>About</Link>
               </li>
               <li>
-                <a href="/projects" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={toggleMenu}>My Projects</a>
+                <Link to="/projects" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={toggleMenu}>My Projects</Link>
               </li>
               <li>
                 <a href="/#contact" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={handleContactClick}>Contact</a>

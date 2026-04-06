@@ -1,8 +1,32 @@
 import { IoMdCode } from "react-icons/io";
 import { RiComputerLine, RiDatabase2Line } from "react-icons/ri";
-import { FaServer } from "react-icons/fa";
+import { FaServer, FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGitAlt, FaGithub } from "react-icons/fa";
+import { SiTailwindcss, SiFastapi, SiExpress, SiJsonwebtokens, SiRedis, SiMongodb, SiMysql, SiPostgresql, SiPrisma, SiVercel, SiPostman } from "react-icons/si";
+import { VscCode } from "react-icons/vsc";
 import myPic from "../assets/images/newmypic_new.png";
 import skillData from '../assets/My_details/skill.json';
+
+const SKILL_ICONS = {
+    "HTML": { icon: FaHtml5, color: "#E34F26" },
+    "CSS": { icon: FaCss3Alt, color: "#1572B6" },
+    "JavaScript": { icon: FaJsSquare, color: "#F7DF1E" },
+    "React.js": { icon: FaReact, color: "#61DAFB" },
+    "Tailwind CSS": { icon: SiTailwindcss, color: "#06B6D4" },
+    "Node.js": { icon: FaNodeJs, color: "#339933" },
+    "FastAPI": { icon: SiFastapi, color: "#009688" },
+    "Express.js": { icon: SiExpress, color: "#FFFFFF" },
+    "JWT": { icon: SiJsonwebtokens, color: "#D63AFF" },
+    "Redis": { icon: SiRedis, color: "#DC382D" },
+    "MySQL": { icon: SiMysql, color: "#4479A1" },
+    "MongoDB": { icon: SiMongodb, color: "#47A248" },
+    "PostgreSQL": { icon: SiPostgresql, color: "#4169E1" },
+    "Prisma": { icon: SiPrisma, color: "#2D3748" },
+    "Git": { icon: FaGitAlt, color: "#F05032" },
+    "GitHub": { icon: FaGithub, color: "#FFFFFF" },
+    "VS Code": { icon: VscCode, color: "#007ACC" },
+    "Vercel": { icon: SiVercel, color: "#FFFFFF" },
+    "Postman": { icon: SiPostman, color: "#FF6C37" },
+};
 
 const SERVICE_ICONS = [
     <IoMdCode size={28} />,
@@ -89,30 +113,50 @@ export const About = () => {
                 </section>
 
                 {/* Skills */}
-                <section className="py-10">
-                    <div data-reveal className="reveal-item" style={{ transitionDelay: "40ms" }}>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">My Skills</h2>
-                        <div className="w-16 h-1 bg-cyan-500 mb-8"></div>
+                <section className="py-14 relative overflow-hidden">
+                    {/* Background */}
+                    <div className="absolute inset-0 -z-10">
+                        <div className="absolute top-10 left-1/4 w-80 h-80 bg-cyan-500/8 rounded-full blur-[100px]"></div>
+                        <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-purple-600/8 rounded-full blur-[100px]"></div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {skillData.skills.map((group, i) => (
-                            <div
-                                key={i}
-                                data-reveal
-                                className="reveal-item bg-slate-900/50 border border-slate-700 rounded-xl p-6"
-                                style={{ transitionDelay: `${80 + i * 70}ms` }}
-                            >
-                                <h3 className="text-lg font-semibold text-cyan-400 mb-4">{group.category}</h3>
-                                <div className="flex flex-wrap gap-2">
-                                    {group.items.map((skill, j) => (
-                                        <span key={j} className="px-3 py-1 bg-cyan-500/10 text-white text-sm rounded-full border border-cyan-500/30 hover:bg-cyan-500/20 transition-colors">
-                                            {skill}
-                                        </span>
-                                    ))}
+                    <div data-reveal className="reveal-item text-center" style={{ transitionDelay: "40ms" }}>
+                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">My Skills</h2>
+                        <div className="w-16 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto mb-3"></div>
+                        <p className="text-gray-500 text-sm max-w-md mx-auto mb-12">Technologies and tools I work with to bring ideas to life</p>
+                    </div>
+
+                    <div
+                        data-reveal
+                        className="reveal-item grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-5 md:gap-6"
+                        style={{ transitionDelay: "100ms" }}
+                    >
+                        {skillData.skills.flatMap(group => group.items).map((skill, j) => {
+                            const skillInfo = SKILL_ICONS[skill];
+                            const IconComponent = skillInfo?.icon;
+                            const iconColor = skillInfo?.color || "#22d3ee";
+                            return (
+                                <div
+                                    key={j}
+                                    className="flex flex-col items-center gap-3 py-5"
+                                >
+                                    <div
+                                        className="w-16 h-16 flex items-center justify-center rounded-2xl border border-slate-700/40"
+                                        style={{ background: `${iconColor}08` }}
+                                    >
+                                        {IconComponent && (
+                                            <IconComponent
+                                                size={36}
+                                                style={{ color: iconColor }}
+                                            />
+                                        )}
+                                    </div>
+                                    <span className="text-xs text-gray-400 font-medium text-center leading-tight">
+                                        {skill}
+                                    </span>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </section>
 
