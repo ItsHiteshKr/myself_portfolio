@@ -1,24 +1,10 @@
-import { IoMdCode } from "react-icons/io";
-import { RiComputerLine, RiDatabase2Line } from "react-icons/ri";
-import { FaServer } from "react-icons/fa";
 import skillData from '../assets/My_details/skill.json';
-
-
-
-const SERVICE_ICONS = [
-    <IoMdCode size={28} />,
-    <FaServer size={24} />,
-    <RiDatabase2Line size={28} />,
-    <RiComputerLine size={28} />,
-];
 
 export const About = () => {
     return (
         <div className="relative min-h-screen w-full max-w-[1400px] mx-auto overflow-x-hidden px-4 sm:px-6 lg:px-0 bg-white text-black">
 
             <main className="max-w-[1200px] mx-auto mt-6">
-
-
                 {/* Timeline */}
                 <section className="py-10">
                     <div data-reveal className="reveal-item" style={{ transitionDelay: "40ms" }}>

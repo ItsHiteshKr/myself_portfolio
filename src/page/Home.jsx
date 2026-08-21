@@ -1,8 +1,7 @@
 import React from "react";
-import { RiComputerLine } from "react-icons/ri";
-import { IoMdCode } from "react-icons/io";
-import { FaServer, FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGitAlt, FaGithub } from "react-icons/fa";
-import { SiTailwindcss, SiFastapi, SiExpress, SiJsonwebtokens, SiRedis, SiMongodb, SiMysql, SiPostgresql, SiPrisma, SiVercel, SiPostman } from "react-icons/si";
+import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGitAlt, FaGithub } from "react-icons/fa";
+import { SiTailwindcss, SiExpress, SiJsonwebtokens, SiRedis, SiMongodb, SiMysql, SiPostgresql, SiVercel, SiPostman, SiSocketdotio, SiCplusplus } from "react-icons/si";
+import { AiOutlineConsoleSql } from "react-icons/ai";
 import { VscCode } from "react-icons/vsc";
 import { FaArrowRight } from "react-icons/fa6";
 
@@ -26,25 +25,26 @@ const getShortDescription = (text, limit = 150) => {
 };
 
 const SKILL_ICONS = {
+  "C++": { icon: SiCplusplus, color: "#00599C" },
+  "SQL": { icon: AiOutlineConsoleSql, color: "#F29111" },
   "HTML": { icon: FaHtml5, color: "#E34F26" },
   "CSS": { icon: FaCss3Alt, color: "#1572B6" },
   "JavaScript": { icon: FaJsSquare, color: "#F7DF1E" },
   "React.js": { icon: FaReact, color: "#61DAFB" },
   "Tailwind CSS": { icon: SiTailwindcss, color: "#06B6D4" },
   "Node.js": { icon: FaNodeJs, color: "#339933" },
-  "FastAPI": { icon: SiFastapi, color: "#009688" },
   "Express.js": { icon: SiExpress, color: "#FFFFFF" },
   "JWT": { icon: SiJsonwebtokens, color: "#D63AFF" },
   "Redis": { icon: SiRedis, color: "#DC382D" },
   "MySQL": { icon: SiMysql, color: "#4479A1" },
   "MongoDB": { icon: SiMongodb, color: "#47A248" },
   "PostgreSQL": { icon: SiPostgresql, color: "#4169E1" },
-  "Prisma": { icon: SiPrisma, color: "#2D3748" },
   "Git": { icon: FaGitAlt, color: "#F05032" },
   "GitHub": { icon: FaGithub, color: "#FFFFFF" },
   "VS Code": { icon: VscCode, color: "#007ACC" },
   "Vercel": { icon: SiVercel, color: "#FFFFFF" },
   "Postman": { icon: SiPostman, color: "#FF6C37" },
+  "Socket.io": { icon: SiSocketdotio, color: "#010105" },
 };
 
 
@@ -64,7 +64,7 @@ export const Home = () => {
   };
 
   return (
-    <div className="main min-h-[90vh] mt-6 max-w-[1240px] mx-auto">
+    <div className="main min-h-[90vh] mt-6 max-w-[1200px] mx-auto">
 
       {/* header Section */}
       <div className="flex flex-col items-center gap-1 sm:gap-1 mt-6 md:mt-10  mx-auto">
@@ -100,7 +100,7 @@ export const Home = () => {
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-3 mt-6">
+            <div className="flex flex-wrap items-center justify-center gap-3 mt-6">
               <a
                 href="mailto:hiteshbih11@gmail.com"
                 className="bg-cyan-500 hover:bg-cyan-600 text-white rounded py-2.5 px-4 transition-all inline-block"
@@ -119,7 +119,7 @@ export const Home = () => {
           {/* Right Side - About Me */}
           <div>
             <p className="text-[#afb6bd] text-lg font-normal leading-relaxed tracking-wide mb-8 pt-4">
-              I'm Hitesh Kumar, a Full Stack Web Developer with hands-on experience building responsive, scalable, and user-focused web applications. I specialize in React.js, JavaScript, Node.js, Express.js, FastAPI, and database technologies including MySQL, PostgreSQL, and MongoDB.
+              I'm Hitesh Kumar, a Full Stack Web Developer with hands-on experience building responsive, scalable, and user-focused web applications. I specialize in React.js, JavaScript, Node.js, Express.js, and database technologies including MySQL, PostgreSQL, and MongoDB.
               <br />
               <br />
               Through my internship and personal projects, I've worked on real-world applications such as an Intranet Portal, Stock Management System, and AI Career Coach.
@@ -162,53 +162,54 @@ export const Home = () => {
 
       {/* Skill details */}
       <div className="flex items-center justify-center mt-10 md:mt-14">
-        <section className="py-14 relative overflow-hidden">
-          {/* Background */}
-          <div className="absolute inset-0 -z-10">
-            <div className="absolute top-10 left-1/4 w-80 h-80 bg-cyan-500/8 rounded-full blur-[100px]"></div>
-            <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-purple-600/8 rounded-full blur-[100px]"></div>
-          </div>
+        <section className="py-14 relative overflow-visible px-1 sm:px-2">
 
           <div data-reveal className="reveal-item text-center" style={{ transitionDelay: "40ms" }}>
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-2">My Skills</h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto mb-3"></div>
-            <p className="text-gray-600 text-sm max-w-md mx-auto mb-12">Technologies and tools I work with to bring ideas to life</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-200 mb-2 ">My Tech Skills</h2>
+            <div className="w-[400px] h-1  bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto mb-3"></div>
+            <p className="text-gray-300 text-sm max-w-md mx-auto tracking-wide mb-12">Technologies and tools I work with to bring ideas to life</p>
           </div>
 
           <div
             data-reveal
-            className="reveal-item grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-5 md:gap-6"
+            className="reveal-item grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6"
             style={{ transitionDelay: "100ms" }}
           >
-            {skillData.skills.flatMap(group => group.items).map((skill, j) => {
-              const skillInfo = SKILL_ICONS[skill];
-              const IconComponent = skillInfo?.icon;
-              const iconColor = skillInfo?.color || "#22d3ee";
-              return (
-                <div
-                  key={j}
-                  className="flex flex-col items-center gap-3 py-5"
-                >
-                  <div
-                    className="w-16 h-16 flex items-center justify-center rounded-2xl border border-slate-700/40"
-                    style={{ background: `${iconColor}08` }}
-                  >
-                    {IconComponent && (
-                      <IconComponent
-                        size={36}
-                        style={{ color: iconColor }}
-                      />
-                    )}
-                  </div>
-                  <span className="text-xs text-gray-600 font-medium text-center leading-tight">
-                    {skill}
-                  </span>
+            {skillData.skills.map((group, i) => (
+              <div key={i} className="border border-gray-800 rounded-xl p-6 transition-all duration-500 hover:-translate-y-2 hover:border-cyan-500 hover:shadow-[0_0_26px_rgba(34,211,238,0.45)]">
+                <h3 className="text-xl font-bold text-cyan-400 text-center mb-2 border-b border-gray-800 pb-2">
+                  {group.category}
+                </h3>
+
+                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-7 pt-4 px-3 py-3 ">
+                  {group.items.map((skill, j) => {
+                    const skillInfo = SKILL_ICONS[skill];
+                    const IconComponent = skillInfo?.icon;
+                    const iconColor = skillInfo?.color || "#22d3ee";
+                    return (
+                      <div key={j} className="flex flex-col items-center gap-1">
+                        <div
+                          className="w-16 h-16 flex items-center justify-center rounded-2xl border border-gray-800 transition-all duration-300 hover:scale-110"
+                          style={{ background: `${iconColor}08` }}
+                        >
+                          {IconComponent && (
+                            <IconComponent size={32} style={{ color: iconColor }} />
+                          )}
+                        </div>
+                        <span className="text-xs text-gray-400 font-medium text-center leading-tight">
+                          {skill}
+                        </span>
+                      </div>
+                    );
+                  })}
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </section>
       </div>
+
+
 
       <div>
         {/* Projects Section */}
@@ -268,7 +269,7 @@ export const Home = () => {
             <a
               href="/projects"
               data-reveal
-              className="reveal-item inline-flex items-end justify-center rounded-full border border-cyan-400/60 px-5 py-2 text-sm font-semibold text-cyan-700 hover:border-cyan-300 hover:text-white transition"
+              className="reveal-item inline-flex items-end justify-center rounded-full border border-cyan-400/60 px-5 py-2 text-sm font-semibold text-gray-200 hover:border-cyan-300 hover:text-white transition"
               style={{ transitionDelay: "140ms" }}
             >
               Explore All Projects  <span className="flex justify-center items-center pl-3 pb-1">{<FaArrowRight />}</span>

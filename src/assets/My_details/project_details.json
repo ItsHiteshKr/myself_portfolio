@@ -50,7 +50,6 @@
       "Shadcn UI",
       "FastAPI",
       "PostgreSQL",
-      "Prisma",
       "Clerk",
       "Gemini API"
     ],

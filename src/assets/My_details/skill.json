@@ -6,6 +6,13 @@
     ],
     "skills": [
         {
+            "category": "Languages",
+            "items": [
+                "C++",
+                "SQL"
+            ]
+        },
+        {
             "category": "Frontend",
             "items": [
                 "HTML",
@@ -19,7 +26,6 @@
             "category": "Backend",
             "items": [
                 "Node.js",
-                "FastAPI",
                 "Express.js",
                 "JWT",
                 "Redis"
@@ -39,7 +45,8 @@
                 "GitHub",
                 "VS Code",
                 "Vercel",
-                "Postman"
+                "Postman",
+                "Socket.io"
             ]
         }
     ],

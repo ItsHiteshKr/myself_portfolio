@@ -37,8 +37,7 @@ const Project = () => {
                             My Projects
                         </h1>
                         <p className="text-gray-300 text-base font-normal max-w-2xl leading-relaxed">
-                            A collection of projects I've built — from full-stack web apps to API integrations.
-                            Click on any project to explore its details and tech stack.
+                            A collection of my projects that reflect real-world problem solving, creativity, and technical ability — with source code & live demos to explore.
                         </p>
                     </div>
 

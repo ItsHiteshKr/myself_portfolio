@@ -33,7 +33,7 @@ const Contact = () => {
                 <span className="text-cyan-400 font-mono text-xs sm:text-sm uppercase tracking-[0.35em]">
                   contacts
                 </span>
-                <span className="flex-1 h-px bg-cyan-500/40" />
+                <span className="flex-1 h-px" />
               </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white">
                 Let's build something <span className="text-cyan-400">amazing</span> together.
@@ -43,8 +43,8 @@ const Contact = () => {
               </p>
 
               <div data-reveal className="reveal-item" style={{ transitionDelay: "120ms" }}>
-                <div className="rounded-2xl border border-gray-200 bg-white p-6">
-                  <p className="text-xs uppercase tracking-[0.2em] text-gray-600">Message me here:</p>
+                <div className="rounded-2xl border border-gray-200 p-6">
+                  <p className="text-xs uppercase tracking-[0.2em] text-gray-200">Message me here:</p>
                   <a
                     href="mailto:hiteshbih11@gmail.com"
                     className="mt-3 inline-flex text-lg font-semibold text-cyan-400 hover:text-cyan-300"
@@ -58,12 +58,12 @@ const Contact = () => {
             <div data-reveal className="reveal-item" style={{ transitionDelay: "160ms" }}>
               <form
                 onSubmit={handleSubmit}
-                className="rounded-2xl p-6 md:p-8 space-y-5 bg-white border border-gray-200"
+                className="rounded-2xl p-6 md:p-8 space-y-5  border border-gray-200"
               >
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label htmlFor="name" className="text-gray-600 text-xs uppercase tracking-[0.2em] block mb-2">Name</label>
+                    <label htmlFor="name" className="text-gray-200 text-xs uppercase tracking-[0.2em] block mb-2">Name</label>
                     <input
                       type="text"
                       id="name"
@@ -72,11 +72,11 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       placeholder="Your name"
-                      className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-black text-sm placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-colors"
+                      className="w-full bg-gray-600 border border-gray-300 rounded-lg px-4 py-3 text-gray-100 text-sm placeholder-gray-50 focus:outline-none focus:border-cyan-500 transition-colors"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="text-gray-600 text-xs uppercase tracking-[0.2em] block mb-2">Email</label>
+                    <label htmlFor="email" className="text-gray-200 text-xs uppercase tracking-[0.2em] block mb-2">Email</label>
                     <input
                       type="email"
                       id="email"
@@ -85,13 +85,13 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       placeholder="abc@example.com"
-                      className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-black text-sm placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-colors"
+                      className="w-full bg-gray-600 border border-gray-300 rounded-lg px-4 py-3 text-gray-100 text-sm placeholder-gray-50 focus:outline-none focus:border-cyan-500 transition-colors"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="text-gray-600 text-xs uppercase tracking-[0.2em] block mb-2">Message</label>
+                  <label htmlFor="message" className="text-gray-200 text-xs uppercase tracking-[0.2em] block mb-2">Message</label>
                   <textarea
                     id="message"
                     name="message"
@@ -100,13 +100,13 @@ const Contact = () => {
                     required
                     rows={6}
                     placeholder="Tell me about your project..."
-                    className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-black text-sm placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-colors resize-none"
+                    className="w-full bg-gray-600 border border-gray-300 rounded-lg px-4 py-3 text-gray-100 text-sm placeholder-gray-50 focus:outline-none focus:border-cyan-500 transition-colors resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-2 border border-cyan-500/60 text-cyan-700 font-semibold rounded-lg px-6 py-3 transition-all duration-300 hover:border-cyan-400 hover:text-black hover:bg-cyan-500/10"
+                  className="inline-flex items-center gap-2 border border-cyan-500/60 text-gray-200 font-semibold rounded-lg px-6 py-3 transition-all duration-300 hover:border-cyan-400 hover:text-white hover:bg-cyan-500/10"
                 >
                   Send Message <FiSend size={16} />
                 </button>
