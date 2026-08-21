@@ -3,7 +3,7 @@ import { SlSocialInstagram, SlSocialLinkedin, SlSocialFacebook, SlSocialGithub }
 import { SiGeeksforgeeks, SiLeetcode } from "react-icons/si";
 export const Footer = () => {
   return (
-    <footer className=" text-center text-gray-400 py-6 ">
+    <footer className="text-center text-gray-300 py-8 md:py-12 px-4 md:px-0">
 
       {/* Social Icons  */}
       <div
@@ -16,16 +16,16 @@ export const Footer = () => {
         <div className="flex flex-row justify-center items-center gap-3 sm:gap-6">
           <div className="hidden sm:block w-24 h-[2px] bg-cyan-500 mx-auto mb-2"></div>
           <div className="flex flex-row gap-4">
-            <a href="https://www.linkedin.com/in/hitesh-kumar-088184240" target="_blank" rel="noopener noreferrer" className="social-icon w-11 h-11 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-cyan-500 hover:text-black border border-white/40 hover:scale-110 transition-all duration-300">
+            <a href="https://www.linkedin.com/in/hitesh-kumar-088184240" target="_blank" rel="noopener noreferrer" className="social-icon w-11 h-11 flex items-center justify-center rounded-full bg-cyan-50 text-black hover:bg-cyan-500 hover:text-black border border-black/20 hover:scale-110 transition-all duration-300">
               <SlSocialLinkedin size={22} />
             </a>
-            <a href="https://github.com/ItsHiteshKr" target="_blank" rel="noopener noreferrer" className="social-icon w-11 h-11 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-cyan-500 hover:text-black border border-white/40 hover:scale-110 transition-all duration-300">
+            <a href="https://github.com/ItsHiteshKr" target="_blank" rel="noopener noreferrer" className="social-icon w-11 h-11 flex items-center justify-center rounded-full bg-cyan-50 text-black hover:bg-cyan-500 hover:text-black border border-black/20 hover:scale-110 transition-all duration-300">
               <SlSocialGithub size={22} />
             </a>
-            <a href="http://geeksforgeeks.org/user/itshiteshkumar/" target="_blank" rel="noopener noreferrer" className="social-icon w-11 h-11 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-cyan-500 hover:text-black border border-white/40 hover:scale-110 transition-all duration-300">
+            <a href="http://geeksforgeeks.org/user/itshiteshkumar/" target="_blank" rel="noopener noreferrer" className="social-icon w-11 h-11 flex items-center justify-center rounded-full bg-cyan-50 text-black hover:bg-cyan-500 hover:text-black border border-black/20 hover:scale-110 transition-all duration-300">
               <SiGeeksforgeeks size={22} />
             </a>
-            <a href="http://leetcode.com/u/ItsHiteshKr/" target="_blank" rel="noopener noreferrer" className="social-icon w-11 h-11 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-cyan-500 hover:text-black border border-white/40 hover:scale-110 transition-all duration-300">
+            <a href="http://leetcode.com/u/ItsHiteshKr/" target="_blank" rel="noopener noreferrer" className="social-icon w-11 h-11 flex items-center justify-center rounded-full bg-cyan-50 text-black hover:bg-cyan-500 hover:text-black border border-black/20 hover:scale-110 transition-all duration-300">
               <SiLeetcode size={22} />
             </a>
           </div>

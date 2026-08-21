@@ -1,4 +1,9 @@
 {
+    "logo": [
+        {
+            "name": "<Hitesh/>"
+        }
+    ],
     "skills": [
         {
             "category": "Frontend",
@@ -24,8 +29,7 @@
             "category": "Database",
             "items": [
                 "MySQL",
-                "MongoDB",
-                "PostgreSQL"
+                "MongoDB"
             ]
         },
         {
@@ -59,16 +63,16 @@
     ],
     "timeline": [
         {
-            "year": "2023 - 2024",
+            "year": "2021 - 2025",
             "title": "Learning & Building",
             "place": "Self-taught",
-            "description": "Learned React.js, Node.js, databases, and built multiple real-world projects."
+            "description": "Started with web development, learned modern frontend and backend technologies, and built practical projects."
         },
         {
             "year": "May 2025 - Present",
             "title": "Full Stack Web Developer",
             "place": "Concientech It Solutions Pvt Ltd",
-            "description": "Building full-stack web applications using MERN stack and FastAPI."
+            "description": "Building full-stack web applications using MERN stack."
         },
         {
             "year": "Future",

@@ -1,12 +1,17 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import logo1 from '../assets/images/logo1.png'
-
+import { useNavigate, NavLink } from "react-router-dom";
+import { FiMenu, FiX } from "react-icons/fi";
+import skillData from '../assets/My_details/skill.json';
 
 const Navbar = () => {
 
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
+
+  const navItems = [
+    { to: "/", label: "Home" },
+    { to: "/projects", label: "My Projects" },
+  ];
 
   const clickhandler = () => {
     navigate("/");
@@ -16,59 +21,58 @@ const Navbar = () => {
     setShowMenu(!showMenu);
   }
 
-  const handleContactClick = (event) => {
-    event.preventDefault();
-    navigate({ pathname: "/", hash: "#contact" });
-    setShowMenu(false);
-  };
-
   return (
     <>
       {/* Blur Overlay - shows when menu is open */}
       {showMenu && (
         <div
-          className='fixed inset-0 bg-black/50 backdrop-blur-sm z-[90] md:hidden'
+          className='fixed inset-0 bg-black/20 backdrop-blur-sm z-[90] md:hidden'
           onClick={toggleMenu}
         />
       )}
 
-      <header className='w-full bg-black pt-2 md:pt-4 shadow-lg relative z-[100]'>
-        <nav className='h-12 md:h-16 flex justify-between items-center font-bold max-w-[1200px] mx-4 lg:mx-auto'>
+      <header className='fixed top-0 left-0 w-full pt-2 md:pt-4 border-gray-900 z-[100] border-b-2 bg-[#100c1b]/95 backdrop-blur-md'>
+        <nav className='h-12 md:h-16 flex justify-between items-center font-bold max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-0'>
           <div>
-            <img
-              src={logo1}
-              alt="logo"
-              className='nav__logo h-6 w-[45px] md:h-10 md:w-[80px] cursor-pointer'
-              onClick={clickhandler}
-            />
+
+            <h1 className='text-2xl md:text-2xl font-bold italic text-white cursor-pointer relative group w-fit' onClick={clickhandler}>
+              {'{ '}<span className='text-cyan-400'>{skillData.logo[0].name}</span>{' }'}
+              <span className='absolute left-0 -bottom-1 w-0 group-hover:w-full h-[3px] bg-cyan-500 transition-all duration-300'></span>
+            </h1>
+
+
           </div>
 
           {/* Desktop Menu */}
           <ul className='hidden md:flex gap-12'>
-            <li className='nav__item'>
-              <Link to="/" className='text-white hover:text-cyan-400 transition-colors'>Home</Link>
-            </li>
-            <li className='nav__item'>
-              <Link to="/about" className='text-white hover:text-cyan-400 transition-colors'>About</Link>
-            </li>
-            <li className='nav__item'>
-              <Link to="/projects" className='text-white hover:text-cyan-400 transition-colors'>My Projects</Link>
-            </li>
-            <li className='nav__item'>
-              <a href="/#contact" onClick={handleContactClick} className='text-white hover:text-cyan-400 transition-colors'>Contact</a>
-            </li>
+            {navItems.map((item) => (
+              <li key={item.to} className=''>
+                <NavLink
+                  to={item.to}
+                  end={item.end}
+                  className={({ isActive }) => `transition-colors ${isActive ? "text-cyan-400" : "text-white hover:text-cyan-400"}`}
+                >
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
           </ul>
 
           {/* Mobile Menu Button */}
-          <div className='text-2xl cursor-pointer md:hidden text-white z-[110]' onClick={toggleMenu}>
-            <ion-icon name={showMenu ? "close" : "menu"}></ion-icon>
-          </div>
+          <button
+            type="button"
+            aria-label={showMenu ? "Close menu" : "Open menu"}
+            className='text-2xl cursor-pointer md:hidden text-white z-[110]'
+            onClick={toggleMenu}
+          >
+            {showMenu ? <FiX size={24} /> : <FiMenu size={24} />}
+          </button>
 
           {/* Mobile Menu */}
           <div
             className={`
               absolute top-full left-0 w-full
-              bg-black/95 backdrop-blur-md
+              bg-black/95 backdrop-blur-md border border-gray-800 shadow-sm shadow-transparent
               p-6 rounded-b-2xl
               transition-all duration-300
               md:hidden
@@ -77,18 +81,18 @@ const Navbar = () => {
             `}
           >
             <ul className='text-center space-y-6'>
-              <li>
-                <Link to="/" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={toggleMenu}>Home</Link>
-              </li>
-              <li>
-                <Link to="/about" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={toggleMenu}>About</Link>
-              </li>
-              <li>
-                <Link to="/projects" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={toggleMenu}>My Projects</Link>
-              </li>
-              <li>
-                <a href="/#contact" className='text-white text-xl hover:text-cyan-400 transition-colors' onClick={handleContactClick}>Contact</a>
-              </li>
+              {navItems.map((item) => (
+                <li key={item.to}>
+                  <NavLink
+                    to={item.to}
+                    end={item.end}
+                    className={({ isActive }) => `text-xl transition-colors ${isActive ? "text-cyan-400" : "text-white hover:text-cyan-400"}`}
+                    onClick={toggleMenu}
+                  >
+                    {item.label}
+                  </NavLink>
+                </li>
+              ))}
             </ul>
           </div>
         </nav>

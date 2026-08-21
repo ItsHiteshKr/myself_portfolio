@@ -1,0 +1,31 @@
+[
+    {
+        "id": 1,
+        "name": "NovaChat AI",
+        "description": "NovaChat AI is a cutting-edge chat application powered by artificial intelligence, designed for seamless one-to-one messaging and user interaction. It features secure authentication, intelligent user search, dynamic chat creation, real-time notifications, and a clean responsive interface. The app is engineered to deliver a smooth and fast messaging experience with real-time updates.",
+        "technologies": [
+            "React.js",
+            "Chakra UI",
+            "Express.js",
+            "MongoDB",
+            "JWT",
+            "Socket.io"
+        ],
+        "github_url": "https://github.com/ItsHiteshKr/Ai-chat-app",
+        "live_url": "https://ai-chat-app-nine-lyart.vercel.app/"
+    },
+    {
+        "id": 2,
+        "name": "Intranet Portal",
+        "description": "Developed a full-featured intranet portal to streamline internal company operations and employee workflows. The application includes modules such as employee management, leave tracking, timesheet submission, expense handling, and policy management. Implemented secure authentication using JWT and managed session control with Redis for efficient token handling and logout functionality. Designed a responsive and user-friendly interface using React.js, ensuring seamless usability across devices. Built scalable backend APIs with FastAPI and integrated MySQL for structured data management, improving system performance and reliability.",
+        "technologies": [
+            "React.js",
+            "FastAPI",
+            "MySQL",
+            "JWT",
+            "Redis"
+        ],
+        "github_url": "https://github.com/ItsHiteshKr/intranet-portal",
+        "live_url": "https://intranet-portal-alpha.vercel.app/"
+    }
+]

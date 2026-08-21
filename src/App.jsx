@@ -4,9 +4,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./page/Home";
-import About from "./page/About";
 import Project from "./page/Project";
-import Contact from "./page/Contact";
 
 function App() {
   const location = useLocation();
@@ -46,16 +44,24 @@ function App() {
   }, [location.pathname, location.hash]);
 
   return (
-    <div className="relative min-h-screen w-full max-w-[1400px] mx-auto overflow-x-hidden px-4 sm:px-6 lg:px-0">
+    <div className="min-h-screen w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-0 text-white">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<Project />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<Home />} />
-      </Routes>
-      <Footer />
+      <div className="pt-16 md:pt-20">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Project />} />
+
+          <Route path="*" element={<div
+            className="flex flex-col items-center justify-center h-screen text-center gap-4">
+            <h1 className="text-3xl font-bold text-white">Page Not Found</h1>
+            <p className="text-gray-700">The page you are looking for does not created by <span className="text-red-400"> Hitesh Kumar</span>.</p>
+            <button>
+              <a href="/" className="text-red-500 hover:text-black rounded-lg hover:bg-red-500 p-2 m-3">Go back to Home</a>
+            </button>
+          </div>} />
+        </Routes>
+        <Footer />
+      </div>
     </div>
   );
 }
