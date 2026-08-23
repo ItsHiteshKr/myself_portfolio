@@ -12,6 +12,7 @@ import projectData from "../assets/My_details/Home_project.json";
 import skillData from '../assets/My_details/skill.json';
 
 import Contact from "./Contact";
+import Footer from "../components/Footer";
 
 const RESUME_DOWNLOAD_LINK = 'https://drive.google.com/file/d/1AW0wpRn5DgwfxoZJ2gwIoOuHYWDBWpS-/view?usp=drive_link';
 
@@ -64,7 +65,7 @@ export const Home = () => {
   };
 
   return (
-    <div className="main min-h-[90vh] mt-6 max-w-[1200px] mx-auto">
+    <div className="main min-h-[90vh] mt-6 max-w-[1200px] mx-auto border-b border-gray-700 pb-6 md:pb-10">
 
       {/* header Section */}
       <div className="flex flex-col items-center gap-1 sm:gap-1 mt-6 md:mt-10  mx-auto">
@@ -172,7 +173,7 @@ export const Home = () => {
 
           <div
             data-reveal
-            className="reveal-item grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="reveal-item grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6"
             style={{ transitionDelay: "100ms" }}
           >
             {skillData.skills.map((group, i) => (
@@ -181,7 +182,7 @@ export const Home = () => {
                   {group.category}
                 </h3>
 
-                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-7 pt-4 px-3 py-3 ">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-7 pt-4 px-3 py-3 ">
                   {group.items.map((skill, j) => {
                     const skillInfo = SKILL_ICONS[skill];
                     const IconComponent = skillInfo?.icon;
