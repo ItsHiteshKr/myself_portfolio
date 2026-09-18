@@ -11,6 +11,20 @@
       "JWT",
       "Socket.io"
     ],
+    "pics": [
+      {
+        "id": 1,
+        "url": "/images/novachat1.png"
+      },
+      {
+        "id": 2,
+        "url": "/images/novachat2.png"
+      },
+      {
+        "id": 3,
+        "url": "/images/novachat3.png"
+      }
+    ],
     "github_url": "https://github.com/ItsHiteshKr/Ai-chat-app",
     "live_url": "https://ai-chat-app-nine-lyart.vercel.app/"
   },
@@ -24,6 +38,12 @@
       "MySQL",
       "JWT",
       "Redis"
+    ],
+    "pics": [
+      {
+        "id": 1,
+        "url": "/images/interanet_portal_01.png"
+      }
     ],
     "github_url": "https://github.com/ItsHiteshKr/intranet-portal",
     "live_url": "https://intranet-portal-alpha.vercel.app/"

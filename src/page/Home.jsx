@@ -7,23 +7,17 @@ import { FaArrowRight } from "react-icons/fa6";
 
 import RotatingTypewriter from '../components/RotatingTypewriter'
 import novachat2 from "../assets/images/novachat2.png";
-import projectData from "../assets/My_details/Home_project.json";
 
+import projectData from "../assets/My_details/Home_project.json";
 import skillData from '../assets/My_details/skill.json';
 
 import Contact from "./Contact";
-import Footer from "../components/Footer";
+import HomeProject from "../components/HomeProject";
 
 const RESUME_DOWNLOAD_LINK = 'https://drive.google.com/file/d/1AW0wpRn5DgwfxoZJ2gwIoOuHYWDBWpS-/view?usp=drive_link';
 
 
 const ROLE_TEXTS = ["Full Stack Web Developer", "MERN Stack Developer", "React.js Developer"];
-
-const getShortDescription = (text, limit = 150) => {
-  if (!text) return "";
-  if (text.length <= limit) return text;
-  return `${text.slice(0, limit).trim()}...`;
-};
 
 const SKILL_ICONS = {
   "C++": { icon: SiCplusplus, color: "#00599C" },
@@ -135,24 +129,24 @@ export const Home = () => {
             <div className="flex gap-5 sm:gap-8 md:justify-between justify-center text-center mb-4">
 
               <div className="border border-gray-700 bg-gray-900 hover:border-cyan-500 hover:bg-gray-800 rounded-lg px-4 py-2  transition-all duration-300">
-                <div className="flex items-baseline gap-1 ">
+                <div className="flex justify-center gap-1 ">
                   <h2 className="text-2xl font-bold text-cyan-500">5+</h2>
                 </div>
                 <p className="text-gray-300 text-md mt-1">Completed<br />Projects</p>
               </div>
 
               <div className="border border-gray-700 bg-gray-900 hover:border-cyan-500 hover:bg-gray-800 rounded-lg px-4 py-2  transition-all duration-300">
-                <div className="flex items-baseline gap-1">
+                <div className="flex justify-center gap-1">
                   <h2 className="text-2xl font-bold text-cyan-500">250+</h2>
                 </div>
                 <p className="text-gray-300 text-md mt-1">DSA<br />Solved</p>
               </div>
 
               <div className="border border-gray-700 bg-gray-900 hover:border-cyan-500 hover:bg-gray-800 rounded-lg px-5 py-2  transition-all duration-300">
-                <div className="flex items-baseline gap-1">
-                  <h2 className="text-2xl font-bold text-cyan-500">6+</h2>
+                <div className="flex items-center justify-center gap-1">
+                  <h2 className="text-2xl font-bold text-cyan-500">1+</h2>
                 </div>
-                <p className="text-gray-300 text-md mt-1">Months of <br />Experience</p>
+                <p className="text-gray-300 text-md mt-1">Years of <br />Experience</p>
               </div>
             </div>
 
@@ -211,75 +205,10 @@ export const Home = () => {
       </div>
 
 
+      {/* Projects Section */}
+      <HomeProject />
 
-      <div>
-        {/* Projects Section */}
-        <section className="projects-section  mt-10 md:mt-14 max-w-[1200px] mx-auto">
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div data-reveal className="reveal-item" style={{ transitionDelay: "60ms" }}>
-              <p className="text-xl uppercase text-cyan-400">My Projects</p>
-            </div>
-
-          </div>
-
-          <div className="mt-8 w-full flex flex-wrap gap-5">
-            {projectData.map((project, index) => {
-              const projectIndex = String(index + 1).padStart(2, "0");
-              return (
-                <article
-                  key={project.id}
-                  data-reveal
-                  className="reveal-item group relative overflow-hidden rounded-2xl border border-gray-200 bg-transparent p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/70"
-                  style={{ transitionDelay: `${180 + index * 70}ms` }}
-                >
-                  <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-cyan-500/10 blur-2xl opacity-0 transition duration-300 group-hover:opacity-100" />
-                  <div className="relative">
-                    {/* <div className="flex items-center justify-between">
-                      <span className="text-xs uppercase text-gray-500">Project {projectIndex}</span>
-                    </div> */}
-                    <h3 className="text-2xl font-semibold text-white mt-4">
-                      {project.name}
-                    </h3>
-                    <p className="text-gray-300 text-md leading-relaxed mt-3">
-                      {getShortDescription(project.description)}
-                    </p>
-                    <div className="flex flex-wrap gap-2 mt-5">
-                      {project.technologies.slice(0, 4).map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2.5 py-1 rounded-full bg-transparent border border-gray-300 text-md text-gray-300 transition-all duration-300 hover:bg-cyan-500 hover:text-black"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    <img
-                      src={novachat2}
-                      alt={project.name}
-                      className="mt-4 rounded-lg border border-gray-200 shadow-lg"
-                    />
-
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-
-          <div className="flex justify-center items-end mt-8 md:mt-10">
-            <a
-              href="/projects"
-              data-reveal
-              className="reveal-item inline-flex items-end justify-center rounded-full border border-cyan-400/60 px-5 py-2 text-sm font-semibold text-gray-200 hover:border-cyan-300 hover:text-white transition"
-              style={{ transitionDelay: "140ms" }}
-            >
-              Explore All Projects  <span className="flex justify-center items-center pl-3 pb-1">{<FaArrowRight />}</span>
-            </a>
-          </div>
-        </section>
-
-      </div>
-
+      {/* Contact Form */}
       <Contact />
 
 
