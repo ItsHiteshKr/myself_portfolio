@@ -13,8 +13,9 @@ import Experience from "../components/Experience";
 
 const VITE_RESUME_URL = import.meta.env.VITE_RESUME_URL;
 
-
-
+/**
+     * @param {string[]} texts
+     */
 const ROLE_TEXTS = ["Full Stack Web Developer", "MERN Stack Developer", "React.js Developer"];
 
 const SKILL_ICONS = {

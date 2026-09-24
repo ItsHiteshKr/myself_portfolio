@@ -4,7 +4,11 @@ import { FiExternalLink, FiGithub } from "react-icons/fi";
 
 import projectData from "../assets/My_details/Home_project.json";
 
-const getShortDescription = (text, limit = 250) => {
+/**
+    * @param {string} text
+    * @param {number} limit
+    */
+const getShortDescription = (text, limit) => {
     if (!text) return "";
     if (text.length <= limit) return text;
     return `${text.slice(0, limit).trim()}...`;
@@ -55,20 +59,15 @@ const HomeProject = () => {
                                     </div>
 
                                     <p className="mt-4 text-sm font-normal leading-7 text-slate-400">
-                                        {getShortDescription(project.description, 185)}
+                                        {getShortDescription(project.description, 180)}
                                     </p>
 
                                     <div className="mt-5 flex flex-wrap gap-2">
-                                        {project.technologies.slice(0, 4).map((tech) => (
+                                        {project.technologies?.map((tech) => (
                                             <span key={tech} className="rounded-md border border-slate-700 bg-slate-900/80 px-2.5 py-1 text-xs font-medium text-slate-300">
                                                 {tech}
                                             </span>
                                         ))}
-                                        {project.technologies.length > 4 && (
-                                            <span className="rounded-md border border-slate-700 px-2.5 py-1 text-xs font-medium text-slate-500">
-                                                +{project.technologies.length - 4} more
-                                            </span>
-                                        )}
                                     </div>
 
                                     <div className="mt-7 flex items-center gap-5 border-t border-slate-800 pt-5 text-sm">

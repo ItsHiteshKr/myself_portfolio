@@ -49,7 +49,7 @@ const Navbar = () => {
               <li key={item.to} className=''>
                 <NavLink
                   to={item.to}
-                  end={item.end}
+                  end={item.label === "Home"}
                   className={({ isActive }) => `transition-colors ${isActive ? "text-cyan-400" : "text-white hover:text-cyan-400"}`}
                 >
                   {item.label}
@@ -85,7 +85,7 @@ const Navbar = () => {
                 <li key={item.to}>
                   <NavLink
                     to={item.to}
-                    end={item.end}
+                    end={item.label === "Home"}
                     className={({ isActive }) => `text-xl transition-colors ${isActive ? "text-cyan-400" : "text-white hover:text-cyan-400"}`}
                     onClick={toggleMenu}
                   >

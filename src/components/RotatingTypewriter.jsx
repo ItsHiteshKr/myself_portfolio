@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+
 const RotatingTypewriter = ({
     texts = [],
     typingSpeed = 80,
