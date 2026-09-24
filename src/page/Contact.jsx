@@ -59,7 +59,7 @@ const Contact = () => {
                   onClick={handleCopy}
                 >
                   {isCopied ? <TiTick size={18} /> : <FaCopy />}
-                  {isCopied ? "Clicked" : "Copy"}
+                  {isCopied ? "copied" : "Copy"}
                 </button>
               </div>
             </div>

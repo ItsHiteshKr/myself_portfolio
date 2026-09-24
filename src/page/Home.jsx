@@ -3,18 +3,16 @@ import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGitAlt, FaGithub }
 import { SiTailwindcss, SiExpress, SiJsonwebtokens, SiRedis, SiMongodb, SiMysql, SiPostgresql, SiVercel, SiPostman, SiSocketdotio, SiCplusplus } from "react-icons/si";
 import { AiOutlineConsoleSql } from "react-icons/ai";
 import { VscCode } from "react-icons/vsc";
-import { FaArrowRight } from "react-icons/fa6";
 
 import RotatingTypewriter from '../components/RotatingTypewriter'
-import novachat2 from "../assets/images/novachat2.png";
-
-import projectData from "../assets/My_details/Home_project.json";
 import skillData from '../assets/My_details/skill.json';
 
 import Contact from "./Contact";
 import HomeProject from "../components/HomeProject";
+import Experience from "../components/Experience";
 
-const RESUME_DOWNLOAD_LINK = 'https://drive.google.com/file/d/1AW0wpRn5DgwfxoZJ2gwIoOuHYWDBWpS-/view?usp=drive_link';
+const VITE_RESUME_URL = import.meta.env.VITE_RESUME_URL;
+
 
 
 const ROLE_TEXTS = ["Full Stack Web Developer", "MERN Stack Developer", "React.js Developer"];
@@ -49,7 +47,7 @@ export const Home = () => {
 
   const handleResumeDownload = () => {
     const anchor = document.createElement('a');
-    anchor.href = RESUME_DOWNLOAD_LINK;
+    anchor.href = VITE_RESUME_URL;
     anchor.download = 'Hitesh_Kumar_Resume.pdf';
     anchor.target = '_blank';
     anchor.rel = 'noopener noreferrer';
@@ -59,7 +57,7 @@ export const Home = () => {
   };
 
   return (
-    <div className="main min-h-[90vh] mt-6 max-w-[1200px] mx-auto border-b border-gray-700 pb-6 md:pb-10">
+    <div className="main min-h-[90vh] mt-1 max-w-[1200px] mx-auto border-gray-700 pb-6 md:pb-1">
 
       {/* header Section */}
       <div className="flex flex-col items-center gap-1 sm:gap-1 mt-6 md:mt-10  mx-auto">
@@ -95,7 +93,7 @@ export const Home = () => {
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-3 mt-6">
+            <div className="flex flex-wrap items-center justify-center gap-3 mt-1">
               <a
                 href="mailto:hiteshbih11@gmail.com"
                 className="bg-cyan-500 hover:bg-cyan-600 text-white rounded py-2.5 px-4 transition-all inline-block"
@@ -113,8 +111,10 @@ export const Home = () => {
 
           {/* Right Side - About Me */}
           <div>
-            <p className="text-[#afb6bd] text-lg font-normal leading-relaxed tracking-wide mb-8 pt-4">
-              I'm Hitesh Kumar, a Full Stack Web Developer with hands-on experience building responsive, scalable, and user-focused web applications. I specialize in React.js, JavaScript, Node.js, Express.js, and database technologies including MySQL, PostgreSQL, and MongoDB.
+            <p className="text-[#afb6bd] text-lg font-normal leading-relaxed tracking-wide mb-8 pt-1">
+              I'm Hitesh , a Full Stack Web Developer with hands-on experience building responsive, scalable, and user-focused web applications.
+
+              I specialize in React.js, JavaScript, Node.js, Express.js, and database technologies including MySQL, PostgreSQL, and MongoDB.
               <br />
               <br />
               Through my internship and personal projects, I've worked on real-world applications such as an Intranet Portal, Stock Management System, and AI Career Coach.
@@ -156,8 +156,8 @@ export const Home = () => {
       </main>
 
       {/* Skill details */}
-      <div className="flex items-center justify-center mt-10 md:mt-14">
-        <section className="py-14 relative overflow-visible px-1 sm:px-2">
+      <div className="flex items-center justify-center mt-7 md:mt-8">
+        <section className="py-1 relative overflow-visible px-1 sm:px-2">
 
           <div data-reveal className="reveal-item text-center" style={{ transitionDelay: "40ms" }}>
             <h2 className="text-3xl md:text-5xl font-bold text-gray-200 mb-2 ">My Tech Skills</h2>
@@ -204,7 +204,8 @@ export const Home = () => {
         </section>
       </div>
 
-
+      {/* Experience Section */}
+      <Experience />
       {/* Projects Section */}
       <HomeProject />
 

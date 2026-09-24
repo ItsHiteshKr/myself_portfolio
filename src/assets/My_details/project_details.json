@@ -14,14 +14,17 @@
     "pics": [
       {
         "id": 1,
+        "name": "NovaChat AI",
         "url": "/images/novachat1.png"
       },
       {
         "id": 2,
+        "name": "NovaChat AI",
         "url": "/images/novachat2.png"
       },
       {
         "id": 3,
+        "name": "NovaChat AI",
         "url": "/images/novachat3.png"
       }
     ],
@@ -34,6 +37,7 @@
     "description": "Developed a full-featured intranet portal to streamline internal company operations and employee workflows. The application includes modules such as employee management, leave tracking, timesheet submission, expense handling, and policy management. Implemented secure authentication using JWT and managed session control with Redis for efficient token handling and logout functionality. Designed a responsive and user-friendly interface using React.js, ensuring seamless usability across devices. Built scalable backend APIs with FastAPI and integrated MySQL for structured data management, improving system performance and reliability.",
     "technologies": [
       "React.js",
+      "Tailwind CSS",
       "FastAPI",
       "MySQL",
       "JWT",
@@ -42,6 +46,7 @@
     "pics": [
       {
         "id": 1,
+        "name": "Intranet Portal",
         "url": "/images/interanet_portal_01.png"
       }
     ],
@@ -54,8 +59,16 @@
     "description": "Built a stock management web application to efficiently track, manage, and update inventory data in real time. The system allows users to add, update, and monitor stock records through an intuitive interface. Developed a responsive frontend using React.js to ensure smooth user interaction across devices. Created backend APIs using FastAPI and integrated a SQL database for reliable data storage and retrieval. Focused on performance optimization, testing, and debugging to enhance system stability, accuracy, and overall user experience.",
     "technologies": [
       "React.js",
+      "Tailwind CSS",
       "FastAPI",
       "MySQL"
+    ],
+    "pics": [
+      {
+        "id": 1,
+        "name": "Stock Management System",
+        "url": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
+      }
     ],
     "github_url": "https://github.com/ItsHiteshKr/stock_backend",
     "live_url": ""
@@ -73,6 +86,13 @@
       "Clerk",
       "Gemini API"
     ],
+    "pics": [
+      {
+        "id": 1,
+        "name": "AI Career Coach",
+        "url": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
+      }
+    ],
     "github_url": "https://github.com/Bikisome/AicarrerCoach",
     "live_url": ""
   },
@@ -84,6 +104,18 @@
       "React.js",
       "Tailwind CSS",
       "Google Search API"
+    ],
+    "pics": [
+      {
+        "id": 1,
+        "name": "Google Search Engine Clone",
+        "url": "/images/google_search_01.png"
+      },
+      {
+        "id": 2,
+        "name": "Google Search Engine Clone",
+        "url": "/images/google_search_02.png"
+      }
     ],
     "github_url": "https://github.com/ItsHiteshKr/Google-search-clone",
     "live_url": "https://google-search-clone-lilac.vercel.app/"

@@ -46,6 +46,7 @@ function App() {
   return (
     <div className="min-h-screen w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-0 text-white">
       <Navbar />
+
       <div className="pt-16 md:pt-20">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -60,8 +61,9 @@ function App() {
             </button>
           </div>} />
         </Routes>
-        <Footer />
       </div>
+
+      <Footer />
     </div>
   );
 }

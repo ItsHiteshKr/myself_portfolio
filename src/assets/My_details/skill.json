@@ -57,7 +57,7 @@
         },
         {
             "title": "Backend Development",
-            "description": "Scalable REST APIs with Node.js, FastAPI, JWT authentication, and database integration."
+            "description": "Scalable REST APIs with Node.js, Express.js, JWT authentication, and database integration."
         },
         {
             "title": "Database Design",
