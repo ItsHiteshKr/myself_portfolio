@@ -63,7 +63,7 @@ const Project = () => {
     return (
         <div>
             {/* <h2 className="text-center text-red-500">this page need some improvements</h2> */}
-            <main className="max-w-[1180px] mx-auto mt-6 text-white px-4 sm:px-6 lg:px-0">
+            <main className="max-w-[1200px] mx-auto mt-6 text-white px-4 sm:px-6 lg:px-0">
                 <section className="py-10">
                     <div data-reveal className="reveal-item" style={{ transitionDelay: "40ms" }}>
                         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">
@@ -101,7 +101,7 @@ const Project = () => {
 
                 {/* Project Cards */}
                 <section data-reveal className="pb-8 reveal-item" style={{ transitionDelay: "150ms" }}>
-                    <div className="flex flex-col sm:gap-6">
+                    <div className="flex flex-col gap-4 sm:gap-7">
                         {projectData.map((project, index) => {
                             const isExpanded = expandedProjectId === project.id;
                             const projectImages = project.pics || [];
@@ -199,7 +199,7 @@ const Project = () => {
                                             </div>
                                         </div>
                                         {/*  Project Links */}
-                                        <div className="flex flex-wrap gap-3 border-t border-slate-800 pt-3 my-3 ">
+                                        <div className="flex flex-wrap gap-3 border-t border-slate-500 pt-3 my-3 ">
                                             <a
                                                 href={project.github_url}
                                                 target="_blank"

@@ -57,7 +57,7 @@ export const Home = () => {
   };
 
   return (
-    <div className="main min-h-[90vh] mt-1 max-w-[1200px] mx-auto border-gray-700 pb-6 md:pb-1">
+    <div className="main mt-1 min-h-[90vh] w-full max-w-[1200px] min-w-0 mx-auto border-gray-700 pb-6 md:pb-1">
 
       {/* header Section */}
       <div className="flex flex-col items-center gap-1 sm:gap-1 mt-6 md:mt-10  mx-auto">
@@ -128,7 +128,7 @@ export const Home = () => {
             {/* Stats */}
             <div className="flex gap-5 sm:gap-8 md:justify-between justify-center text-center mb-4">
 
-              <div className="border border-gray-700 bg-gray-900 hover:border-cyan-500 hover:bg-gray-800 rounded-lg px-4 py-2  transition-all duration-300">
+              <div className="border border-gray-500 bg-gray-900 hover:border-cyan-500 hover:bg-gray-800 rounded-lg px-4 py-2  transition-all duration-300">
                 <div className="flex justify-center gap-1 ">
                   <h2 className="text-2xl font-bold text-cyan-500">5+</h2>
                 </div>
@@ -156,23 +156,23 @@ export const Home = () => {
       </main>
 
       {/* Skill details */}
-      <div className="flex items-center justify-center mt-7 md:mt-8">
-        <section className="py-1 relative overflow-visible px-1 sm:px-2">
+      <div className="mt-7 flex w-full min-w-0 items-center justify-center md:mt-8">
+        <section className="relative w-full max-w-[1200px] min-w-0 overflow-visible px-1 py-1 sm:px-2">
 
           <div data-reveal className="reveal-item text-center" style={{ transitionDelay: "40ms" }}>
             <h2 className="text-3xl md:text-5xl font-bold text-gray-200 mb-2 ">My Tech Skills</h2>
-            <div className="w-[400px] h-1  bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto mb-3"></div>
+            <div className="mx-auto mb-3 h-1 w-full max-w-[400px] bg-gradient-to-r from-cyan-500 to-purple-500"></div>
             <p className="text-gray-300 text-sm max-w-md mx-auto tracking-wide mb-12">Technologies and tools I work with to bring ideas to life</p>
           </div>
 
           <div
             data-reveal
-            className="reveal-item grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="reveal-item grid min-w-0 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3"
             style={{ transitionDelay: "100ms" }}
           >
             {skillData.skills.map((group, i) => (
-              <div key={i} className="border border-gray-800 rounded-xl p-6 transition-all duration-500 hover:-translate-y-2 hover:border-cyan-500 hover:shadow-[0_0_26px_rgba(34,211,238,0.45)]">
-                <h3 className="text-xl font-bold text-cyan-400 text-center mb-2 border-b border-gray-800 pb-2">
+              <div key={i} className="border border-gray-500 rounded-xl p-6 transition-all duration-500 hover:-translate-y-2 hover:border-cyan-500 hover:shadow-[0_0_26px_rgba(34,211,238,0.45)]">
+                <h3 className="text-xl font-bold text-cyan-400 text-center mb-2 border-b border-gray-400 pb-2">
                   {group.category}
                 </h3>
 
@@ -184,7 +184,7 @@ export const Home = () => {
                     return (
                       <div key={j} className="flex flex-col items-center gap-1">
                         <div
-                          className="w-16 h-16 flex items-center justify-center rounded-2xl border border-gray-800 transition-all duration-300 hover:scale-110"
+                          className="w-16 h-16 flex items-center justify-center rounded-2xl border border-gray-500 transition-all duration-300 hover:scale-110"
                           style={{ background: `${iconColor}08` }}
                         >
                           {IconComponent && (

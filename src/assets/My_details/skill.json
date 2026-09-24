@@ -70,22 +70,58 @@
     ],
     "timeline": [
         {
-            "year": "2021 - 2025",
+            "id": 1,
+            "year": "May 2021 - April 2025",
             "title": "Learning & Building",
-            "place": "Self-taught",
-            "description": "Started with web development, learned modern frontend and backend technologies, and built practical projects."
+            "place": "B.Tech in Computer Science",
+            "description": "Built a strong foundation in web development, learned modern frontend and backend technologies, and developed practical projects."
         },
         {
-            "year": "May 2025 - Present",
+            "id": 2,
+            "year": "May 2025 - June 2026",
             "title": "Full Stack Web Developer",
-            "place": "Concientech It Solutions Pvt Ltd",
-            "description": "Building full-stack web applications using MERN stack."
+            "place": "Concientech IT Solutions Pvt Ltd",
+            "description": "Developing and maintaining full-stack web applications using React.js, FastAPI, and SQL databases.",
+            "technologies": [
+                "React.js",
+                "Express.js",
+                "MongoDB",
+                "SQL",
+                "Rest API",
+                "JWT",
+                "Git",
+                "GitHub"
+            ]
         },
         {
+            "id": 3,
+            "year": "July 2026 - Present",
+            "title": "NovaChat AI",
+            "place": "Personal Project",
+            "description": "Building an AI-powered chat application with modern web technologies, focusing on conversational experiences and practical AI features.",
+            "technologies": [
+                "HTML",
+                "Tailwind CSS",
+                "React.js",
+                "Node.js",
+                "Express.js",
+                "MongoDB",
+                "Git",
+                "GitHub"
+            ]
+        },
+        {
+            "id": 4,
             "year": "Future",
             "title": "Continuous Growth",
             "place": "Ongoing Learning",
-            "description": "Continuously improving skills, exploring new technologies, and taking on challenging projects."
+            "description": "Continuously improving technical skills, exploring new technologies, and taking on challenging projects.",
+            "technologies": [
+                "React.js",
+                "Express.js",
+                "SEO",
+                "Next.js"
+            ]
         }
     ]
 }
