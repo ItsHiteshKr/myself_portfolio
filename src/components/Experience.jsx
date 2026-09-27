@@ -84,7 +84,7 @@ const Experience = () => {
                                     <p className="mt-1 text-base text-cyan-300 sm:text-lg">
                                         {experience.place}
                                     </p>
-                                    <p className="mt-4 max-w-2xl leading-relaxed sm:text-xs text-gray-300">
+                                    <p className="mt-4 max-w-2xl leading-loose sm:text-xs text-gray-400">
                                         {experience.description}
                                     </p>
                                 </div>

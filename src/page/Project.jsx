@@ -6,21 +6,19 @@ import projectData from "../assets/My_details/project_details.json";
 
 
 const Project = () => {
-    const [activeId, setActiveId] = useState(/** @type {number | null} */(null));
     const [isOpen, setIsOpen] = useState(false);
     const [expandedProjectId, setExpandedProjectId] = useState(/** @type {number | null} */(null));
     const [projectImageIndexes, setProjectImageIndexes] = useState(/** @type {{ [key: number]: number }} */({}));
-    const activeProject = projectData.find((project) => project.id === activeId);
 
     /**
      * @param {string} text
      * @param {number} limit
-     * @param {boolean} isDiscOpen
+     * @param {boolean} isExpanded
      * @returns {string}
      */
-    const getShortDescription = (text, limit, isDiscOpen) => {
+    const getShortDescription = (text, limit, isExpanded) => {
         if (!text) return "";
-        if (text.length <= limit || isDiscOpen) return text;
+        if (text.length <= limit || isExpanded) return text;
         return `${text.slice(0, limit).trim()}...`;
     };
 
@@ -62,7 +60,6 @@ const Project = () => {
 
     return (
         <div>
-            {/* <h2 className="text-center text-red-500">this page need some improvements</h2> */}
             <main className="max-w-[1200px] mx-auto mt-6 text-white px-4 sm:px-6 lg:px-0">
                 <section className="py-10">
                     <div data-reveal className="reveal-item" style={{ transitionDelay: "40ms" }}>
@@ -119,7 +116,7 @@ const Project = () => {
                                                 <img
                                                     src={currentImage}
                                                     alt={`${project.name} preview`}
-                                                    className="h-full w-full object-cover object-top sm:h-72"
+                                                    className="h-full w-full object-cover object-top sm:h-[280px] sm:w-[550px]"
                                                 />
 
                                                 {projectImages.length > 1 && (
@@ -159,6 +156,7 @@ const Project = () => {
                                             {/* description */}
                                             <p className="mt-2 max-w-3xl text-sm leading-relaxed text-gray-400">
                                                 {getShortDescription(project.description, 180, isExpanded)}
+
                                                 {project.description?.length > 180 && !isExpanded && (
                                                     <button
                                                         type="button"
@@ -182,7 +180,7 @@ const Project = () => {
                                             {/* technology */}
                                             <h3 className="mt-3 font-semibold uppercase text-gray-400">TechStack:</h3>
                                             <div className="mt-1 flex flex-wrap gap-2">
-                                                {project.technologies.slice(0, 5).map((tech) => (
+                                                {project.technologies.map((tech) => (
                                                     <span
                                                         key={tech}
                                                         className="rounded-md border border-slate-700 bg-slate-900 px-2.5 py-1 text-xs text-slate-300"
@@ -190,12 +188,12 @@ const Project = () => {
                                                         {tech}
                                                     </span>
                                                 ))}
-                                                {project.technologies.length > 4 && (
+                                                {/* {project.technologies.length > 4 && (
                                                     <button className="rounded-md border border-slate-700 px-2.5 py-1 text-xs text-slate-500"
                                                     >
                                                         +{project.technologies.length - 5}
                                                     </button>
-                                                )}
+                                                )} */}
                                             </div>
                                         </div>
                                         {/*  Project Links */}
