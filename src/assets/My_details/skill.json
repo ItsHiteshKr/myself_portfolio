@@ -73,15 +73,15 @@
             "id": 1,
             "year": "May 2021 - April 2025",
             "title": "Learning & Building",
-            "place": "B.Tech in Computer Science",
-            "description": "Built a strong foundation in web development, learned modern frontend and backend technologies, and developed practical projects."
+            "place": "B.Tech in Computer Science & Engineering",
+            "description": "Built a strong foundation in computer science and web development while exploring modern frontend and backend technologies. Developed multiple academic and personal projects and graduated with an 8.13 CGPA."
         },
         {
             "id": 2,
             "year": "May 2025 - June 2026",
             "title": "Full Stack Web Developer",
             "place": "Concientech IT Solutions Pvt Ltd",
-            "description": "Developing and maintaining full-stack web applications using React.js, FastAPI, and SQL databases.",
+            "description": "Worked on full-stack web applications, developing responsive interfaces and backend services using React.js, Express.js, and SQL. Contributed to real-world features, database management, authentication, API integration, version control, and deployment.",
             "technologies": [
                 "React.js",
                 "Express.js",
@@ -98,9 +98,8 @@
             "year": "July 2026 - Present",
             "title": "NovaChat AI",
             "place": "Personal Project",
-            "description": "Building an AI-powered chat application with modern web technologies, focusing on conversational experiences and practical AI features.",
+            "description": "Building NovaChat AI, an AI-powered conversational platform focused on creating a modern and intuitive chat experience. Working across the frontend and backend while exploring AI integration, authentication, database management, and scalable web application development.",
             "technologies": [
-                "HTML",
                 "Tailwind CSS",
                 "React.js",
                 "Node.js",
@@ -115,7 +114,7 @@
             "year": "Future",
             "title": "Continuous Growth",
             "place": "Ongoing Learning",
-            "description": "Continuously improving technical skills, exploring new technologies, and taking on challenging projects.",
+            "description": "Continuing to strengthen full-stack development skills, explore emerging technologies, and build meaningful projects while focusing on writing better, scalable, and user-friendly applications.",
             "technologies": [
                 "React.js",
                 "Express.js",

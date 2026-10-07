@@ -53,7 +53,7 @@ const Experience = () => {
                     My Experience
                 </h2>
                 <div className="mx-auto mb-4 h-1 w-full max-w-[350px] bg-gradient-to-r from-cyan-400 to-purple-500"></div>
-                <div className="relative mx-auto mt-10 max-w-3xl pl-8 md:pl-12">
+                <div className="relative mx-auto mt-10 w-full max-w-5xl pl-8 md:pl-12">
                     {[...(ExperienceData.timeline || [])].map((experience, index, timeline) => {
                         const isFuture = experience.year === "Future";
 
@@ -84,9 +84,20 @@ const Experience = () => {
                                     <p className="mt-1 text-base text-cyan-300 sm:text-lg">
                                         {experience.place}
                                     </p>
-                                    <p className="mt-4 max-w-2xl leading-loose sm:text-xs text-gray-400">
+                                    <p className="mt-4 max-w-4xl text-sm leading-7 text-slate-300 sm:text-base sm:leading-8 md:text-lg">
                                         {experience.description}
                                     </p>
+                                    {
+                                        experience.technologies && (
+                                            <p className="mt-4 max-w-4xl text-xs leading-6 text-slate-400 sm:text-sm">
+                                                <span className="font-semibold text-slate-300">Technologies used:</span>
+                                                <span className="ml-1 text-cyan-300">
+                                                    {experience.technologies?.join(", ")}
+                                                </span>
+                                            </p>
+                                        )
+                                    }
+
                                 </div>
                             </article>
                         );
